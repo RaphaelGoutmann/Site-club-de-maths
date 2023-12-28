@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main  # ou le nom de votre branche principale
+      - main
       
 permissions:
   contents: write
@@ -19,17 +19,18 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # Remplacez par la version de Python nécessaire
+          python-version: '3.x'
 
       - name: Install dependencies
         run: |
           pip install pathlib markdown pyyaml datetime
 
       - name: Run Build Script
-        run: python build.py  # Commande pour exécuter votre fichier build.py
+        run: python build.py
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build  # Chemin vers le dossier contenant le site web statique
+          publish_dir: ./build
+      
