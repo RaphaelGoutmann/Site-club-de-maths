@@ -17,6 +17,9 @@ with open("config.yaml", "r") as configFile:
         "post": Path(config["templates"]["post"]).read_text()
     }
 
+# create build 
+build_path.mkdir(exist_ok=True)
+
 # clear build
 shutil.rmtree(build_path)
 
