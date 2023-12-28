@@ -1,0 +1,33 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main  # ou le nom de votre branche principale
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Remplacez par la version de Python nécessaire
+
+      - name: Install dependencies
+        run: |
+          pip install pathlib markdown pyyaml datetime
+
+      - name: Run Build Script
+        run: python build.py  # Commande pour exécuter votre fichier build.py
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build  # Chemin vers le dossier contenant le site web statique
+          publish_branch: gh-pages  # Branche de déploiement (GitHub Pages)
