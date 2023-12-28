@@ -10,32 +10,39 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     background: white;
     color: #242424;
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 16px;
+    line-height: 1.6rem;
     font-family: 'Source Serif 4', Georgia, Cambria, "Times New Roman", Times, serif;
     font-weight: 400;
 }
 
+@media screen and (min-width: 425px) {
+    html, body {
+        font-size: 20px;
+    }
+}
+
+
 p {
-    margin: 28px 0;
+    margin: 1.4rem 0;
 }
 
 h1 {
-    font-size: 42px;
-    margin: 30px 0;
+    font-size: 2.1rem;
+    margin: 1.5rem 0;
 }
 
 h2 {
-    font-size: 32px;
-    margin: 30px 0;
+    font-size: 1.6rem;
+    margin: 1.5rem 0;
 }
 
 h3 {
-    font-size: 28px;
-    margin: 20px 0;
+    font-size: 1.4rem;
+    margin: 1.5rem 0;
 }
 
 blockquote {
@@ -59,11 +66,6 @@ a {
     color: #c0392b;
 }
 
-ul {
-    margin: 28px 0;
-    list-style: inside;
-}
-
 pre code {
     display: block;
     width: 100%;
@@ -73,15 +75,27 @@ pre code {
 }
 
 hr {
-    margin: 40px 0;
+    margin: 2rem 0;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-top: 1.4rem 0;
+    padding-left: 2rem;
+}
+
+li {
+    display: list-item;
 }
 
 /* container */
 
 .container {
-    max-width: 680px;
+    max-width: 760px;
+    padding: 0 2rem;
     width: 100%;
-    margin: 60px auto;
+    margin: 3rem auto;
 }
 
 
@@ -90,14 +104,22 @@ hr {
 .post-list {}
 
 .post {
-    margin-bottom: 10px;
+    margin-bottom: .5rem;
     display: block;
+}
+
+/* table of contents */
+
+.toc {}
+
+.toc ul {
+    list-style: none;
 }
 
 /* katex */
 
 .katex-display {
-    margin: 40px 0 !important;
+    margin: 2rem 0 !important;
 }
 
 /* utils */

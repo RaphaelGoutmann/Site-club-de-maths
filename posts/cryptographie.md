@@ -54,7 +54,7 @@ Prenons le nombre 15. Il est relativement aisé d’en déterminer la factorisat
 
 Voici quelques ressources pour approfondir le sujet. 
 
-Chacune d’entre elle est précédée d’un certain nombre d’ étoiles suivant sa complexitée, allant d’une  étoile (\*) pour les plus faciles à trois  ́etoiles (\*\*\*) pour les plus complexes
+Chacune d’entre elle est précédée d’un certain nombre d’étoiles suivant sa complexité, allant d’une  étoile (\*) pour les plus faciles à trois  étoiles (\*\*\*) pour les plus complexes.
 
 - (\*\*) Pour en savoir d'avantage sur le chiffrement César et sa formalisation mathématique (avec en bonus une implémentation du système en Python). [Exo7Math — Cryptographie - partie 1 : chiffrement de César](https://www.youtube.com/watch?v=g8RmT-CwTMo&list=PL024XGD7WCIEii2U_HKeprCTJA4xb-uJ6&index=2)
 
