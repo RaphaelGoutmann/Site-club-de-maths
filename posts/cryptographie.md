@@ -50,8 +50,27 @@ Bien que les processus mis en œuvre derrière de tels chiffrement soient assez 
 
 Prenons le nombre 15. Il est relativement aisé d’en déterminer la factorisation en nombre premiers : 3 x 5. De même, une fois les facteurs premiers trouvés, il est très facile de retrouver le nombre de départ (une simple multiplication suffit) : 3 x 5 = 15. Mais admettons que nous prenions des nombres plus grands, bien plus grands, gigantesques même avec plusieurs centaines de chiffres. La seule méthode dont nous disposions pour décomposer ce nombre en produit de facteurs premiers est de tester toutes les possibilités. Cette décomposition, facile pour de petits nombres, devient alors terriblement complexe. Même les ordinateurs les plus puissants dont nous disposions auraient besoin de plusieurs milliards d’années pour déterminer cette décomposition. Toutefois, disposant des facteurs, il est toujours très facile de retrouver le nombre initial. Il suffit de calculer une simple multiplication, réalisable en quelques secondes par un ordinateur. Le processus est donc rapide dans un sens et lent dans l’autre. Il est “facile” de multiplier et “complexe” de décomposer. Et c’est là dessus que repose le chiffrement asymétrique. Le chiffrement à l’aide de la clé publique est un processus “facile” mais le déchiffrement de ce même message à l’aide de la clé publique est “complexe” à moins de disposer de la clé privée qui agit comme une “trappe” secrète pour retrouver le message initial. (voir ce lien pour plus de détails sur le chiffrement RSA, principale système de chiffrement asymétrique)
 
+## Annexe
+
+Voici quelques ressources pour approfondir le sujet. 
+
+Chacune d’entre elle est précédée d’un certain nombre d’ étoiles suivant sa complexitée, allant d’une  étoile (\*) pour les plus faciles à trois  ́etoiles (\*\*\*) pour les plus complexes
+
+- (\*\*) Pour en savoir d'avantage sur le chiffrement César et sa formalisation mathématique (avec en bonus une implémentation du système en Python). [Exo7Math — Cryptographie - partie 1 : chiffrement de César](https://www.youtube.com/watch?v=g8RmT-CwTMo&list=PL024XGD7WCIEii2U_HKeprCTJA4xb-uJ6&index=2)
 
 
+- (\*\*) Pour en savoir plus sur le chiffrement par substitution et un chiffrement semblable dit "de Vigenère" ainsi que leur formalisation mathématique. [Exo7Math — Cryptographie - partie 2 : chiffrement de Vigenère](https://www.youtube.com/watch?v=rUlqxHGKJ68&list=PL024XGD7WCIEii2U_HKeprCTJA4xb-uJ6&index=3)
+
+- (\*\*) Pour un savoir plus sur le principe de cryptographie à clé publique / asymétrique et sa formalisation mathématique. [Exo7Math — Cryptographie - partie 4 : cryptographie à clé publique](https://www.youtube.com/watch?v=6KfJXl-Kvws&list=PL024XGD7WCIEii2U_HKeprCTJA4xb-uJ6&index=5)
+
+- (\*\*\*) Pour comprendre en profondeur le fonctionnement du chiffrement RSA, l'un des principaux système de chiffrement asymétrique. RSA est particulièrement complexe, c'est pourquoi deux vidéos vous sont proposées : une présentation des outils arithmétiques utilisés dans la conception de RSA et le système en lui même.
+	- Partie 1 (outils arithmétiques pour RSA) : [Exo7Math — Cryptographie - partie 5 : arithmétique pour RSA](https://www.youtube.com/watch?v=M7vOxKVLsVY&list=PL024XGD7WCIEii2U_HKeprCTJA4xb-uJ6&index=6)
+	- Partie 2 (chiffrement RSA en tant que tel) : [Exo7Math — Cryptographie - partie 6 : chiffrement RSA](https://www.youtube.com/watch?v=Xlal_d4zyfo&list=PL024XGD7WCIEii2U_HKeprCTJA4xb-uJ6&index=7)
 
 
+- (\*\*) Pour comprendre le principe général de la Blockchain (à l'origine notamment des cryptomonnaies), largement basé sur la cryptographie. [Maths Adultes — Blockchain : Comment ça marche ?](https://www.youtube.com/watch?v=SccvFbyDaUI)
+
+- (\*) Pour en connaitre davantage sur Alan Turing, le film *Imitation Game*. Sans doute l'un des meilleurs films de mathématiques jamais réalisé.
+
+- (\*) Pour découvrir le mystère qui entoure Satoshi Nakamoto, à l'origine d'une révolution mathématique et économique en ayant créé la Blockchain et le Bitcoin. Sans doute l'un des meilleurs reportages Arte jamais réalisé. [Arte — Le mystère Satoshi : enquête sur l'inventeur du bitcoin](https://www.youtube.com/watch?v=0ETcLj5jBy4)
 
