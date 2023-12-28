@@ -65,7 +65,8 @@ for post in posts:
 posts_list = ""
 for post in posts:
     title = post["meta"]["title"][0]
-    posts_list += f'<a href="{title}.html" class="post">{title}</a>'
+    date  = post["meta"]["date"][0]
+    posts_list += f'<a href="{title}.html" class="post">{title} ({date})</a>'
 
 html = render(templates["index"], context = {
     "posts_list": posts_list
