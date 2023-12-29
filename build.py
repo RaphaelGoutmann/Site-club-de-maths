@@ -11,6 +11,7 @@ with open("config.yaml", "r") as configFile:
     build_path = Path(config["build"])
     css_path   = Path(config["css"])
     js_path    = Path(config["js"])
+    img_path    = Path(config["img"])
 
     templates = {
         "index": Path(config["templates"]["index"]).read_text(),
@@ -23,9 +24,10 @@ build_path.mkdir(exist_ok=True)
 # clear build
 shutil.rmtree(build_path)
 
-# copy css and js
+# copy css, js and img
 shutil.copytree(css_path, build_path / "css/")
 shutil.copytree(js_path, build_path  / "js/")
+shutil.copytree(img_path, build_path  / "img/")
 
 # posts
 

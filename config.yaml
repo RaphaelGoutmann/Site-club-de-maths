@@ -1,6 +1,7 @@
 build: "build/"
 css: "css/"
 js: "js/"
+img: "img/"
 posts: "posts/"
 templates: 
   index: templates/index.html
