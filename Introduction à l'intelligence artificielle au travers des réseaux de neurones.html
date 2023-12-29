@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
 
+    <!-- medium zoom -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj+Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            mediumZoom('img', {background: '#000'})
+        })
+    </script>
+
     <!-- katex -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -67,7 +75,7 @@ Nous cherchons toutefois à obtenir une probabilité, ce qui nécessite de compo
 <p>Cette fonction, dite <strong>sigmoïde</strong>, présente bien les propriétés recherchées :
 - Elle tend vers 0 en - (probabilité de 0 pour une valeur très faible)
 - Elle tend vers 1 en + (probabilité de 1 pour une valeur très élevée)
-- Elle est à valeur dans ]0, 1[ (founit un pourcentage quelque soit z)
+- Elle est à valeur dans $]0, 1[$ (founit un pourcentage quelque soit z)
 - Elle est définie sur R tout entier 
 - Elle est strictement croissante sur R tout entier (pourcentage proportionnel à la valeur obtenue par la fonction combinaison).</p>
 <p>Nous obtenons donc bien un pourcentage, d’autant plus grand que la sortie du neurone est grande, i.e d'autant plus proche de 100% que le neurone considère qu'il s'agit d'un chien. </p>
@@ -144,7 +152,7 @@ Ainsi, si nous disposons dans notre première couche de deux neurones 1 et 2, le
 </a></p>
 </li>
 <li>
-<p>(***) Une excellente formation (sur laquelle ce cours est en grande partie basé) sur le fonctionnement des réseaux de neurones artificiels et leur implémentation en python. <a href="https://www.youtube.com/playlist?list=PLO_fdPEVlfKoanjvTJbIbd9V5d9Pzp8Rw">MachineLearnia — Formation Deep Learning
+<p>(***) Une excellente formation (sur laquelle ce cours est en grande partie basé) sur le fonctionnement des réseaux de neurones artificiels et leur implémentation en Python. <a href="https://www.youtube.com/playlist?list=PLO_fdPEVlfKoanjvTJbIbd9V5d9Pzp8Rw">MachineLearnia — Formation Deep Learning
 </a></p>
 </li>
 </ul>
