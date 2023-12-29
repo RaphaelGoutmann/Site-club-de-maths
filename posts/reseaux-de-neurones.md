@@ -57,7 +57,7 @@ Représentée par le graphe suivant
 Cette fonction, dite **sigmoïde**, présente bien les propriétés recherchées :
 - Elle tend vers 0 en - (probabilité de 0 pour une valeur très faible)
 - Elle tend vers 1 en + (probabilité de 1 pour une valeur très élevée)
-- Elle est à valeur dans ]0, 1[ (founit un pourcentage quelque soit z)
+- Elle est à valeur dans $]0, 1[$ (founit un pourcentage quelque soit z)
 - Elle est définie sur R tout entier 
 - Elle est strictement croissante sur R tout entier (pourcentage proportionnel à la valeur obtenue par la fonction combinaison).
 
@@ -178,5 +178,5 @@ Chacune d’entre elle est précédée d’un certain nombre d’étoiles suivan
 - (\*\*) Une excellente série de vidéos sur le fonctionnement et les enjeux présent et futur de l'intelligence artificielle  [Science4All — L'intelligence artificielle et le machine learning
 ](https://www.youtube.com/playlist?list=PLtzmb84AoqRTl0m1b82gVLcGU38miqdrC)
 
-- (\*\*\*) Une excellente formation (sur laquelle ce cours est en grande partie basé) sur le fonctionnement des réseaux de neurones artificiels et leur implémentation en python. [MachineLearnia — Formation Deep Learning
+- (\*\*\*) Une excellente formation (sur laquelle ce cours est en grande partie basé) sur le fonctionnement des réseaux de neurones artificiels et leur implémentation en Python. [MachineLearnia — Formation Deep Learning
 ](https://www.youtube.com/playlist?list=PLO_fdPEVlfKoanjvTJbIbd9V5d9Pzp8Rw)

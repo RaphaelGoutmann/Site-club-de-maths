@@ -44,7 +44,7 @@ for post in posts_path.glob("*.md"):
     })
 
 # sort posts by date
-posts.sort(key=lambda post: datetime.strptime(post["meta"]["date"][0], f"%d/%m/%Y"))
+posts.sort(key=lambda post: datetime.strptime(post["meta"]["date"][0], f"%d/%m/%Y"), reverse=True)
 
 
 for post in posts:
