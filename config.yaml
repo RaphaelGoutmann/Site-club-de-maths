@@ -6,3 +6,6 @@ posts: "posts/"
 templates: 
   index: templates/index.html
   post: templates/post.html
+
+countdown: "vendredi 12 Janvier 2024"
+classroom: "M12"

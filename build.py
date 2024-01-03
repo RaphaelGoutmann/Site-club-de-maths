@@ -8,10 +8,13 @@ from datetime import datetime
 with open("config.yaml", "r") as configFile:
     config = yaml.safe_load(configFile)
 
-    build_path = Path(config["build"])
-    css_path   = Path(config["css"])
-    js_path    = Path(config["js"])
+    build_path  = Path(config["build"])
+    css_path    = Path(config["css"])
+    js_path     = Path(config["js"])
     img_path    = Path(config["img"])
+    
+    countdown        = Path(config["countdown"])
+    classroom        = Path(config["classroom"])
 
     templates = {
         "index": Path(config["templates"]["index"]).read_text(),
@@ -26,14 +29,14 @@ shutil.rmtree(build_path)
 
 # copy css, js and img
 shutil.copytree(css_path, build_path / "css/")
-shutil.copytree(js_path, build_path  / "js/")
+shutil.copytree(js_path,  build_path  / "js/")
 shutil.copytree(img_path, build_path  / "img/")
 
 # posts
 
 posts = []
 
-posts_path     = Path("posts/")
+posts_path = Path("posts/")
 for post in posts_path.glob("*.md"):
     md = markdown.Markdown(extensions=["meta", "extra", "toc"])
     body = md.convert(post.read_text())
@@ -71,7 +74,9 @@ for post in posts:
     posts_list += f'<a href="{title}.html" class="post">{title} ({date})</a>'
 
 html = render(templates["index"], context = {
-    "posts_list": posts_list
+    "posts_list": posts_list,
+    "countdown": countdown,
+    "classroom": classroom
 })
 
 with open(build_path / "index.html", "w") as o:
