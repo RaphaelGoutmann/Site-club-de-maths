@@ -99,6 +99,10 @@ li {
 
 /* container */
 
+.title {
+    text-align: center;
+}
+
 .container {
     max-width: 760px;
     padding: 0 2rem;
