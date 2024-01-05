@@ -1,9 +1,14 @@
 from pathlib import Path
 import shutil
-import markdown
 import yaml
-from render import render
 from datetime import datetime
+from utils.render import render
+from utils.converter import markdown2html, latex2html
+
+
+def log(msg):
+    print(msg)
+    
 
 with open("config.yaml", "r") as configFile:
     config = yaml.safe_load(configFile)
@@ -37,27 +42,33 @@ shutil.copytree(img_path, build_path  / "img/")
 posts = []
 
 posts_path = Path("posts/")
-for post in posts_path.glob("*.md"):
-    md = markdown.Markdown(extensions=["meta", "extra", "toc"])
-    body = md.convert(post.read_text())
-    meta = md.Meta
+for post in posts_path.glob("*"):
+    text = post.read_text()
+
+    if post.suffix == ".md":
+        meta, body = markdown2html(text)
+    elif post.suffix == ".tex":
+        meta, body = latex2html(text)
+    else:
+        continue
+
     posts.append({
         "meta": meta,
         "body": body
     })
 
 # sort posts by date
-posts.sort(key=lambda post: datetime.strptime(post["meta"]["date"][0], f"%d/%m/%Y"), reverse=True)
+posts.sort(key=lambda post: datetime.strptime(post["meta"]["date"], f"%d/%m/%Y"), reverse=True)
 
 
 for post in posts:
-    title = post["meta"]["title"][0]
+    title = post["meta"]["title"]
     
     html = render(templates["post"], context = {
         "title":  title,
-        "author": post["meta"]["author"][0],
-        "date":   post["meta"]["date"][0],
-        "tags":   post["meta"]["tags"][0],
+        "author": post["meta"]["author"],
+        "date":   post["meta"]["date"],
+        "tags":   post["meta"]["tags"],
         "body":   post["body"],
     })
     
@@ -65,12 +76,15 @@ for post in posts:
     with open(output_path, "w") as o:
         o.write(html)
 
+    log(f'"{output_path.name}" written.')
+
+
 # index
 
 posts_list = ""
 for post in posts:
-    title = post["meta"]["title"][0]
-    date  = post["meta"]["date"][0]
+    title = post["meta"]["title"]
+    date  = post["meta"]["date"]
     posts_list += f'<a href="{title}.html" class="post">{title} ({date})</a>'
 
 html = render(templates["index"], context = {
@@ -82,7 +96,10 @@ html = render(templates["index"], context = {
 with open(build_path / "index.html", "w") as o:
     o.write(html)
 
+log(f'"index.html" written.')
+
+
 
 # sucess message
 
-print("Done.")
+log("Everything's done.")
