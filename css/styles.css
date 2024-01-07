@@ -97,6 +97,11 @@ pre code {
     padding: 2rem;
 }
 
+code {
+    background: rgb(240, 240, 240);
+    padding: .1rem .3rem;
+}
+
 hr {
     margin: 2rem 0;
 }
@@ -104,13 +109,45 @@ hr {
 ul {
     display: block;
     list-style-type: disc;
-    margin-top: 1.4rem 0;
+    margin: 1.4rem 0;
+    padding-left: 2rem;
+}
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    margin: 1.4rem 0;
     padding-left: 2rem;
 }
 
 li {
     display: list-item;
 }
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+dl {
+    display: block;
+    margin: 1.4rem 0;
+}
+
+dt {
+    display: block;	
+    font-weight: bold;
+}
+
+dd {
+    display: block;
+}
+
 
 /* container */
 
