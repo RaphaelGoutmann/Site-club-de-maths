@@ -3,7 +3,7 @@ import shutil
 import yaml
 from datetime import datetime
 from utils.render import render
-from utils.converter import markdown2html, latex2html
+from utils.converter import markdown2html
 
 
 def log(msg):
@@ -47,8 +47,6 @@ for post in posts_path.glob("*"):
 
     if post.suffix == ".md":
         meta, body = markdown2html(text)
-    elif post.suffix == ".tex":
-        meta, body = latex2html(text)
     else:
         continue
 
