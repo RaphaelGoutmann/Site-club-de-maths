@@ -148,6 +148,13 @@ dd {
     display: block;
 }
 
+strong, b {
+    font-weight: bold;
+}
+
+em, i {
+    font-style: italic;
+}
 
 /* container */
 
@@ -161,7 +168,6 @@ dd {
     width: 100%;
     margin: 3rem auto;
 }
-
 
 /* posts */
 

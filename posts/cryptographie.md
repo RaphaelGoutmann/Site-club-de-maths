@@ -2,7 +2,6 @@
 title: Introduction à la cryptographie
 author: Raphaël Goutmann & Louise Marsollier
 date: 01/12/2023
-tags: Mathématiques Informatique Cryptographie
 ---
 
 [TOC]

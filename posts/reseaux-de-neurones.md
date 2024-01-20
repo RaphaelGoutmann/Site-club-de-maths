@@ -2,7 +2,6 @@
 title: Introduction à l'intelligence artificielle au travers des réseaux de neurones
 author: Raphaël Goutmann & Louise Marsollier
 date: 22/12/2023
-tags: Mathématiques Informatique Intelligence Artificielle
 ---
 
 [TOC]

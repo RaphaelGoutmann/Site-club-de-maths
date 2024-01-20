@@ -66,7 +66,6 @@ for post in posts:
         "title":  title,
         "author": post["meta"]["author"],
         "date":   post["meta"]["date"],
-        "tags":   post["meta"]["tags"],
         "body":   post["body"],
     })
     
@@ -95,8 +94,6 @@ with open(build_path / "index.html", "w") as o:
     o.write(html)
 
 log(f'"index.html" written.')
-
-
 
 # sucess message
 

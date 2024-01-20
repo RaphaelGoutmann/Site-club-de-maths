@@ -2,8 +2,9 @@
 title: Introduction à la théorie des systèmes de votes
 author: Raphaël Goutmann & Louise Marsollier
 date: 12/01/2024
-tags: Mathématiques Théorie des jeux
 ---
+
+[TOC]
 
 ## Définitions générales
 
@@ -40,6 +41,8 @@ L’enjeux est alors d'agréger un profil de préférence en une préférence co
 
 Nous disposons pour cela de nombreux modes de scrutin plus ou moins complexes. 
 
+### Le scrutin majoritaire
+
 Le plus évident d'entre eux est le scrutin majoritaire.
 Pour définir le gagnant de l’élection, nous comptons le nombre de fois où chaque candidat apparaît comme premier choix des électeurs. Si l’un d’entre eux obtient plus d’une stricte majorité des voies (plus de 50%), il gagne.
 
@@ -54,6 +57,8 @@ Par exemple, cette élection :
 verrait le candidat A élu. En effet, il y a en tout 8 électeurs, le candidat A apparait premier choix chez 6 d’entre eux, il s’agit d’une majorité et le candidat A est élu. 
 Mais un problème surgit immédiatement : dans ce système, il n’y a pas toujours de vainqueur. En effet, pour peu que les voies soient correctement réparties, il se peut qu’aucun candidat n'obtienne de majorité. 
 Nous devons donc améliorer ce système de manière à ce qu’il fournisse un vainqueur à chaque élection. 
+
+### Le scrutin majoritaire modifié
 
 Une autre solution peut alors consister à compter le nombre de fois où chaque candidat apparaît comme premier choix des électeurs et à élire le candidat présentant le plus de voix. Ainsi, le cas suivant : 
 
@@ -93,6 +98,8 @@ Cette absence d’indépendance aux alternatives non pertinentes est une menace 
 
 Il nous faut donc améliorer ce système.
 
+### Le scrutin à deux tours
+
 Une idée pourrait alors être d’organiser une élections en plusieurs “étapes” / “tours” , permettant aux électeurs d’ajuster au fur et à mesure leurs votes pour refléter au mieux leur volonté. 
 
 
@@ -112,6 +119,8 @@ Le profile de préférence suivant :
 |G3|G3|D2|D2|D2|
 
 Mènerait les deux candidats de droite au second tour (et donc à l’élection d’un candidat de droite), alors même qu’une majorité de la population vote à gauche. C’est pour pallier ce phénomène de division que les partis politiques organisent des primaires (qui ne font en fin de compte que repousser le problème au moment des primaires).
+
+### Le système de Hare
 
 Nous pourrions alors pousser l’idée à l’extrême en organisant autant de tour que de candidats. Autrement dit, nous éliminerons à chaque tour le candidat ayant reçu le moins de premier choix des listes de préférences jusqu’à ce qu’il n’en reste qu’un seul. Il s’agit de la méthode de Hare. 
 
@@ -168,6 +177,8 @@ Toutefois, en observant les préférences plus en détail un fait saute aux yeux
 
 A est dit “vainqueur de Condorcet” et il apparaît absurde de ne pas élire A. 
 
+### Le système de Borda
+
 Nous pourrions également envisager le système suivant : considérons une élection entre trois candidats A, B et C. Chaque fois qu’un candidat apparaît à la première place il reçoit deux points et chaque fois qu’il apparaît à la deuxième place, il reçoit un point. 
 Le candidat élu est alors le candidat ayant reçu le plus de points. 
 
@@ -199,6 +210,8 @@ B : $4 + 2 \times 7 = 18$ points.
 C : $4 \times 2 + 5 = 14$ points
 B serait donc élu. 
 Autrement dit, les électeurs B > A > C ont eu intérêt à mentir sur leurs préférences réelles pour faire élire leur candidat préféré. Ils ont voté utile pour manipuler le résultat du scrutin. C’est là encore un problème.
+
+### Le système de Combs
 
 Le système de Combs est similaire au système de Hare, à la seule différence qu’il ne s’agit pas à chaque tour d’éliminer le candidat ayant reçu le moins de première place mais le candidat ayant reçu le plus de dernière place. Est éliminé non plus le moins apprécié mais le plus détesté des candidats. 
 
@@ -299,6 +312,8 @@ Le critère d’indépendance aux alternatives non pertinentes (ou IIA pour inde
 En pratique l’indépendance aux alternatives non pertinentes, la monotonicité et la non-imposition impliquent le critère de pareto, si bien que tout théorème valable dans le cas du critère de pareto le sera également dans le cas où l’iia, la monotonicité et la non-imposition sont simultanément valables. 
 
 Ainsi, un système parfait devrait a minima respecter ces critères qui semblent raisonnables. 
+
+### Le théorème d'impossibilité de Arrow
 
 Mais la réalité nous rattrape et Kenneth Arrow (économiste né en 1921, mort en 2017 prix nobel d’économie) publie en 1951 son théorème d’impossibilité qui s’énonce comme suit : 
 
@@ -404,14 +419,19 @@ Puisque la préférence entre a et b est fixée, les électeurs peuvent placer c
 Ainsi, quelque soit le profile considéré, n* dicte la préférence globale entre toutes les paires n’impliquant pas c. Il ne reste dès lors plus qu’à prouver que c’est également le cas pour celles impliquant c. 
 Il suffit pour cela de réitérer le raisonnement et d’observer qu’un dictateur de paires impliquant c dicte également des paires dont n* est dictateur, de sorte que ces derniers ne sont en fait qu’un unique dictateur, l’élection présente donc bien un dictateur. (QED) 
 
+
 Nous pouvons toutefois noter deux choses. Premièrement, le théorème de Arrow ne s'applique que dans le cas où la préférence collective s'exprime comme une liste de préférence. Qu'en est-il alors des modes de scrutins qui n'ont pour objectif que d'élire un seul représentant ? 
 Deuxièmement, le critère d'indépendance aux alternatives non pertinentes peut être critiqué puisqu'il ne prend en compte que la position relative des candidats dans les votes et non l'écart qui les sépare. 
+
+### Le théorème d'impossibilité de Gibbard-Satterthwaite
 
 C'est dans ce contexte que Allan Gibbard et Mark Satterthwaite démontrent séparément dans les années 70 un théorème plus "fort" que le théorème de Arrow, le théorème dit de Gibbard-Satterhwaite (que nous admettrons sans démonstration) : 
 
 > “Pour trois alternatives ou plus, le seul scrutin qui respecte l'unanimité et le critère de strategy-proofness est la dictature”
 
 Ainsi, il n'existe aucun mode de scrutin ordinal (c'est à dire qui se base sur une liste de préférence des électeurs) qui puisse respecter conjointement tous ces critères.
+
+### Vers le jugement majoritaire
 
 Malgré tout, ces théorèmes ne s'appliquent qu'au cas des scrutins ordinaux et nous pouvons parfaitement contourner cette difficulté en mettant en oeuvre un autre système pour exprimer les préférences de l'électorat. 
 
