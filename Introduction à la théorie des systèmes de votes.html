@@ -44,7 +44,34 @@
 
         <h1>Introduction à la théorie des systèmes de votes</h1>
 
-        <h2 id="definitions-generales">Définitions générales</h2>
+        <div class="toc">
+<ul>
+<li><a href="#definitions-generales">Définitions générales</a></li>
+<li><a href="#panorama-des-principaux-modes-de-scrutins">Panorama des principaux modes de scrutins</a><ul>
+<li><a href="#le-scrutin-majoritaire">Le scrutin majoritaire</a></li>
+<li><a href="#le-scrutin-majoritaire-modifie">Le scrutin majoritaire modifié</a></li>
+<li><a href="#le-scrutin-a-deux-tours">Le scrutin à deux tours</a></li>
+<li><a href="#le-systeme-de-hare">Le système de Hare</a></li>
+<li><a href="#le-systeme-de-borda">Le système de Borda</a></li>
+<li><a href="#le-systeme-de-combs">Le système de Combs</a></li>
+</ul>
+</li>
+<li><a href="#vers-un-mode-de-scrutin-parfait">Vers un mode de scrutin parfait</a><ul>
+<li><a href="#critere-de-condorcet">Critère de Condorcet</a></li>
+<li><a href="#critere-de-monotonie">Critère de monotonie</a></li>
+<li><a href="#critere-de-pareto-ou-unanimite">Critère de Pareto ou Unanimité</a></li>
+<li><a href="#critere-de-strategy-proofness">Critère de Strategy-Proofness</a></li>
+<li><a href="#critere-dindependance-aux-alternatives-non-pertinentes">Critère D'indépendance aux alternatives non pertinentes</a></li>
+<li><a href="#critere-de-non-imposition">Critère de non-imposition</a></li>
+<li><a href="#le-theoreme-dimpossibilite-de-arrow">Le théorème d'impossibilité de Arrow</a></li>
+<li><a href="#le-theoreme-dimpossibilite-de-gibbard-satterthwaite">Le théorème d'impossibilité de Gibbard-Satterthwaite</a></li>
+<li><a href="#vers-le-jugement-majoritaire">Vers le jugement majoritaire</a></li>
+</ul>
+</li>
+<li><a href="#annexe">Annexe</a></li>
+</ul>
+</div>
+<h2 id="definitions-generales">Définitions générales</h2>
 <p>La question du vote est omniprésente dans nos sociétés, que ce soit entre amis pour décider quel film choisir ou à l’échelle d’un pays dans le choix d’un président. De par leur aspect transversal, touchant aussi bien à la politique, à l’économie qu’aux mathématiques, les systèmes de votes font l’objet d’études poussées depuis plusieurs siècles.</p>
 <p>Un système de vote, ou mode de scrutin, est un système par lequel agréger les préférences collectives des électeurs pour en déduire une préférence de groupe vis-à-vis d’un certain nombre d’alternatives ou candidats. </p>
 <p>Nous nous limiterons ici au cas d’une élection simple aboutissant au choix d’une seule alternative parmi l’ensemble des alternatives possibles (un président parmi les candidats, un restaurant parmi l’ensemble de ceux dans un rayon d’un kilomètre etc.) </p>
@@ -86,6 +113,7 @@
 <p>L’enjeux est alors d'agréger un profil de préférence en une préférence collective.  </p>
 <h2 id="panorama-des-principaux-modes-de-scrutins">Panorama des principaux modes de scrutins</h2>
 <p>Nous disposons pour cela de nombreux modes de scrutin plus ou moins complexes. </p>
+<h3 id="le-scrutin-majoritaire">Le scrutin majoritaire</h3>
 <p>Le plus évident d'entre eux est le scrutin majoritaire.
 Pour définir le gagnant de l’élection, nous comptons le nombre de fois où chaque candidat apparaît comme premier choix des électeurs. Si l’un d’entre eux obtient plus d’une stricte majorité des voies (plus de 50%), il gagne.</p>
 <p>Par exemple, cette élection : </p>
@@ -118,6 +146,7 @@ Pour définir le gagnant de l’élection, nous comptons le nombre de fois où c
 <p>verrait le candidat A élu. En effet, il y a en tout 8 électeurs, le candidat A apparait premier choix chez 6 d’entre eux, il s’agit d’une majorité et le candidat A est élu. 
 Mais un problème surgit immédiatement : dans ce système, il n’y a pas toujours de vainqueur. En effet, pour peu que les voies soient correctement réparties, il se peut qu’aucun candidat n'obtienne de majorité. 
 Nous devons donc améliorer ce système de manière à ce qu’il fournisse un vainqueur à chaque élection. </p>
+<h3 id="le-scrutin-majoritaire-modifie">Le scrutin majoritaire modifié</h3>
 <p>Une autre solution peut alors consister à compter le nombre de fois où chaque candidat apparaît comme premier choix des électeurs et à élire le candidat présentant le plus de voix. Ainsi, le cas suivant : </p>
 <table>
 <thead>
@@ -199,6 +228,7 @@ Ce système fournit toujours un vainqueur qui semble représenter la volonté du
 <p>Dans ce contexte, c’est B qui est élu. L’introduction du candidat C a eu pour effet de “diviser” les voies à gauche, provoquant l’élection du candidat de droite, alors même qu’une majorité des électeurs étaient favorable à l’élection d’un candidat de gauche. </p>
 <p>Cette absence d’indépendance aux alternatives non pertinentes est une menace sévère au pluralisme politique, fondement d’une démocratie qui fonctionne. Elle entraîne par ailleurs les électeurs à voter utile / stratégique plutôt que selon leurs véritables préférences.</p>
 <p>Il nous faut donc améliorer ce système.</p>
+<h3 id="le-scrutin-a-deux-tours">Le scrutin à deux tours</h3>
 <p>Une idée pourrait alors être d’organiser une élections en plusieurs “étapes” / “tours” , permettant aux électeurs d’ajuster au fur et à mesure leurs votes pour refléter au mieux leur volonté. </p>
 <p>Le manière la plus commune de procéder est d’organiser deux tours : deux candidats sont élus au premier tour selon un scrutin majoritaire modifié et ces derniers s’affrontent dans un scrutin majoritaire au second tour. C’est le système dans les élections présidentielles en France.</p>
 <p>Cette manière de procéder, bien que légèrement meilleure que le scrutin majoritaire classique,  ne règle pas entièrement le problème. Imaginons une élection entre deux parties de droite D1, D2 et trois parties de gauche G1, G2, G3.</p>
@@ -252,6 +282,7 @@ Ce système fournit toujours un vainqueur qui semble représenter la volonté du
 </tbody>
 </table>
 <p>Mènerait les deux candidats de droite au second tour (et donc à l’élection d’un candidat de droite), alors même qu’une majorité de la population vote à gauche. C’est pour pallier ce phénomène de division que les partis politiques organisent des primaires (qui ne font en fin de compte que repousser le problème au moment des primaires).</p>
+<h3 id="le-systeme-de-hare">Le système de Hare</h3>
 <p>Nous pourrions alors pousser l’idée à l’extrême en organisant autant de tour que de candidats. Autrement dit, nous éliminerons à chaque tour le candidat ayant reçu le moins de premier choix des listes de préférences jusqu’à ce qu’il n’en reste qu’un seul. Il s’agit de la méthode de Hare. </p>
 <p>Nous pouvons par exemple imaginer l’élection suivante : </p>
 <table>
@@ -402,6 +433,7 @@ Considérons l’élection suivante : </p>
 - A est préféré à B par 9 électeurs (une majorité)
 - A est préféré à C par 10 électeurs (une majorité)</p>
 <p>A est dit “vainqueur de Condorcet” et il apparaît absurde de ne pas élire A. </p>
+<h3 id="le-systeme-de-borda">Le système de Borda</h3>
 <p>Nous pourrions également envisager le système suivant : considérons une élection entre trois candidats A, B et C. Chaque fois qu’un candidat apparaît à la première place il reçoit deux points et chaque fois qu’il apparaît à la deuxième place, il reçoit un point. 
 Le candidat élu est alors le candidat ayant reçu le plus de points. </p>
 <p>Ainsi dans le profile de préférence suivant : </p>
@@ -468,6 +500,7 @@ B : $4 + 2 \times 7 = 18$ points.
 C : $4 \times 2 + 5 = 14$ points
 B serait donc élu. 
 Autrement dit, les électeurs B &gt; A &gt; C ont eu intérêt à mentir sur leurs préférences réelles pour faire élire leur candidat préféré. Ils ont voté utile pour manipuler le résultat du scrutin. C’est là encore un problème.</p>
+<h3 id="le-systeme-de-combs">Le système de Combs</h3>
 <p>Le système de Combs est similaire au système de Hare, à la seule différence qu’il ne s’agit pas à chaque tour d’éliminer le candidat ayant reçu le moins de première place mais le candidat ayant reçu le plus de dernière place. Est éliminé non plus le moins apprécié mais le plus détesté des candidats. </p>
 <p>Dans le profil suivant :</p>
 <table>
@@ -660,6 +693,7 @@ Dans le cas suivant : </p>
 <p>“Le critère de non-imposition signifie que toutes les configurations possibles de préférences globales peuvent être obtenues, pour peu que l’on choisisse le bon profil de préférence.”</p>
 <p>En pratique l’indépendance aux alternatives non pertinentes, la monotonicité et la non-imposition impliquent le critère de pareto, si bien que tout théorème valable dans le cas du critère de pareto le sera également dans le cas où l’iia, la monotonicité et la non-imposition sont simultanément valables. </p>
 <p>Ainsi, un système parfait devrait a minima respecter ces critères qui semblent raisonnables. </p>
+<h3 id="le-theoreme-dimpossibilite-de-arrow">Le théorème d'impossibilité de Arrow</h3>
 <p>Mais la réalité nous rattrape et Kenneth Arrow (économiste né en 1921, mort en 2017 prix nobel d’économie) publie en 1951 son théorème d’impossibilité qui s’énonce comme suit : </p>
 <blockquote>
 <p>“Quand il y a trois alternatives ou plus, la seule manière de combiner des préférences individuelles en une préférence de groupe avec unanimité et indépendance aux alternatives non pertinentes est la dictature.” </p>
@@ -910,11 +944,13 @@ Ainsi, quelque soit le profile considéré, n</em> dicte la préférence globale
 Il suffit pour cela de réitérer le raisonnement et d’observer qu’un dictateur de paires impliquant c dicte également des paires dont n* est dictateur, de sorte que ces derniers ne sont en fait qu’un unique dictateur, l’élection présente donc bien un dictateur. (QED) </p>
 <p>Nous pouvons toutefois noter deux choses. Premièrement, le théorème de Arrow ne s'applique que dans le cas où la préférence collective s'exprime comme une liste de préférence. Qu'en est-il alors des modes de scrutins qui n'ont pour objectif que d'élire un seul représentant ? 
 Deuxièmement, le critère d'indépendance aux alternatives non pertinentes peut être critiqué puisqu'il ne prend en compte que la position relative des candidats dans les votes et non l'écart qui les sépare. </p>
+<h3 id="le-theoreme-dimpossibilite-de-gibbard-satterthwaite">Le théorème d'impossibilité de Gibbard-Satterthwaite</h3>
 <p>C'est dans ce contexte que Allan Gibbard et Mark Satterthwaite démontrent séparément dans les années 70 un théorème plus "fort" que le théorème de Arrow, le théorème dit de Gibbard-Satterhwaite (que nous admettrons sans démonstration) : </p>
 <blockquote>
 <p>“Pour trois alternatives ou plus, le seul scrutin qui respecte l'unanimité et le critère de strategy-proofness est la dictature”</p>
 </blockquote>
 <p>Ainsi, il n'existe aucun mode de scrutin ordinal (c'est à dire qui se base sur une liste de préférence des électeurs) qui puisse respecter conjointement tous ces critères.</p>
+<h3 id="vers-le-jugement-majoritaire">Vers le jugement majoritaire</h3>
 <p>Malgré tout, ces théorèmes ne s'appliquent qu'au cas des scrutins ordinaux et nous pouvons parfaitement contourner cette difficulté en mettant en oeuvre un autre système pour exprimer les préférences de l'électorat. </p>
 <p>L'une d'entre elle consiste à noter les candidats selon une certaine échelle. 
 Dans une élection à trois candidats A, B et C, un électeur pourrait par exemple attribuer les notes suivantes aux candidats 
@@ -952,11 +988,6 @@ Le jugement majoritaire ne respecte pas tous les critères mais une grande parti
             </div>
 
         </div>
-
-
-        <!-- <p>
-            Catégorie : Mathématiques Théorie des jeux
-        </p> -->
 
     </div>
 
