@@ -156,6 +156,11 @@ em, i {
     font-style: italic;
 }
 
+summary {
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
 /* container */
 
 .title {
