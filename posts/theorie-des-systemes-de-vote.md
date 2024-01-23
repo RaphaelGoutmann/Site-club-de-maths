@@ -411,13 +411,13 @@ Nous allons maintenant montrer que ce n* est dictateur de pair pour toutes les p
 
 Considérons donc un couple de candidats a et c et choisissons l’un d’entre eux, disons a. 
 
-Nous construisons alors un profil (III), similaire au profil (II) à la différence que n* place a au-dessus de b de sorte que a > b > c. 
+Nous construisons alors un profil (III), similaire au profil (II) à la différence que n\* place a au-dessus de b de sorte que a > b > c. 
 Puisque les positions relatives de a et c sont les mêmes que dans le profil (I), la préférence collective est (par iia) a > c. 
 De même, puisque les positions relatives de b et c sont les mêmes que dans le profil (II), la préférence collective est (par iia) c > b. 
 Par transitivité nous avons donc a > c > b  a > b
 Puisque la préférence entre a et b est fixée, les électeurs peuvent placer c où bon leur semble sans modifier la relation ab, dévoilant ainsi l’ensemble des profils possibles (a et b étaient déjà placés de façon arbitraire et c l’est désormais également).
-Ainsi, quelque soit le profile considéré, n* dicte la préférence globale entre toutes les paires n’impliquant pas c. Il ne reste dès lors plus qu’à prouver que c’est également le cas pour celles impliquant c. 
-Il suffit pour cela de réitérer le raisonnement et d’observer qu’un dictateur de paires impliquant c dicte également des paires dont n* est dictateur, de sorte que ces derniers ne sont en fait qu’un unique dictateur, l’élection présente donc bien un dictateur. (QED) 
+Ainsi, quelque soit le profile considéré, n\* dicte la préférence globale entre toutes les paires n’impliquant pas c. Il ne reste dès lors plus qu’à prouver que c’est également le cas pour celles impliquant c. 
+Il suffit pour cela de réitérer le raisonnement et d’observer qu’un dictateur de paires impliquant c dicte également des paires dont n\* est dictateur, de sorte que ces derniers ne sont en fait qu’un unique dictateur, l’élection présente donc bien un dictateur. (QED) 
 
 
 Nous pouvons toutefois noter deux choses. Premièrement, le théorème de Arrow ne s'applique que dans le cas où la préférence collective s'exprime comme une liste de préférence. Qu'en est-il alors des modes de scrutins qui n'ont pour objectif que d'élire un seul représentant ? 

@@ -17,6 +17,8 @@ with open("config.yaml", "r") as configFile:
     css_path    = Path(config["css"])
     js_path     = Path(config["js"])
     img_path    = Path(config["img"])
+    posts_path  = Path(config["posts"])
+
     
     countdown        = Path(config["countdown"])
     classroom        = Path(config["classroom"])
@@ -41,7 +43,6 @@ shutil.copytree(img_path, build_path  / "img/")
 
 posts = []
 
-posts_path = Path("posts/")
 for post in posts_path.glob("*"):
     text = post.read_text()
 
