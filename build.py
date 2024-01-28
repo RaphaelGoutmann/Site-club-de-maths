@@ -5,7 +5,6 @@ from datetime import datetime
 from utils.render import render
 from utils.converter import markdown2html
 
-
 def log(msg):
     print(msg)
     
