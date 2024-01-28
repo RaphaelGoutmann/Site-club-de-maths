@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quelques formules sur pi, e et phi — Atelier</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo-notre-dame-providence.png">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- medium zoom -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj+Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            mediumZoom('img', {background: '#000'})
+        })
+    </script>
+
+    <!-- katex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false},
+              ]
+            });
+        });
+    </script>
+
+</head>
+<body>
+    
+    <div class="container">
+
+        <a class="no-text-decoration" href="index.html">← Revenir à l'accueil</a>
+
+        <h1>Quelques formules sur pi, e et phi</h1>
+
+        <div class="toc">
+<ul>
+<li><a href="#phi">Phi</a></li>
+<li><a href="#e">E</a></li>
+<li><a href="#pi">Pi</a></li>
+<li><a href="#annexe">Annexe</a></li>
+</ul>
+</div>
+<p>L’objectif ici est d’établir de jolies formules faisant intervenir $\phi$, $\pi$ et $e$, trois constantes fondamentales des mathématiques. 
+Nous n’avons ici l’ambition ni d’être exhaustifs, ni même de suivre une quelconque structure. Les résultats sont présentés pour leur intérêt esthétique et pédagogique. </p>
+<p>$\pi$, $\phi$, et $e$ se distinguent principalement des constantes généralement étudiées par leur irrationalité. Aucune d’entre elles ne peut être écrite sous forme d’une fraction de deux entiers. Il en résulte un développement décimal infini sans logique apparente.</p>
+<p>$\pi$ et $e$ présentent par ailleurs la particularité d’être des nombres transcendants, c'est-à-dire qu’il ne sont la racine d’aucun polynôme à coefficients entiers. </p>
+<p>Malgré cet apparent “chaos”, elles présentent de jolies propriétés qui justifient leur étude. </p>
+<h2 id="phi">Phi</h2>
+<p>Le nombre $\phi$, aussi appelé nombre d'or, est une constante dont l'expression décimale commence par $1,618$. $\phi$ est définit comme l'unique rapport $a/b$ entre deux longueurs $a$ et $b$ telles que le rapport de la somme $a + b$ des deux longueurs sur la plus grande ($a$) soit égal à celui de la plus grande ($a$) sur la plus petite ($b$), ce qui s'écrit :</p>
+<p>$$ \frac{a+b}{a} = \frac{a}{b} = \phi $$</p>
+<p>Ainsi, le nombre d'or est l'unique nombre réel positif tel que</p>
+<p>$$ \phi^2 = \phi + 1$$</p>
+<p>La notation $\phi$ fait référence au sculpteur Phidias, concepteur du parténon.</p>
+<p>Partant de l'équation caractéristique du nombre d'or </p>
+<p>$$\phi^2 = \phi + 1$$</p>
+<p>En réarrangeant les termes  nous obtenons </p>
+<p>$$\phi^2 - \phi - 1 = 0$$</p>
+<p>Il s’agit là d’une équation polynomiale du second degré des plus classiques.</p>
+<p>Nous calculons $\Delta = (-1)^2 - 4 \times (-1) = 5$</p>
+<p>D’où</p>
+<p>$$ x_1 = \frac{1 + \sqrt{5}}{2} $$</p>
+<p>$$ x_2 = \frac{1 - \sqrt{5}}{2} $$</p>
+<p>Étant donné que seul $x_1$ est positif, nous obtenons</p>
+<p>$$\phi =  \frac{1 + \sqrt{5}}{2} $$</p>
+<p>Une manère très courante de représenter le nombre d'or. </p>
+<p>Mais $\phi$ apparait également et de manière plus surprenante dans l'évaluation d'expression au caractère "infini".</p>
+<p>$\phi$ est par exemple égal à<br />
+$$\sqrt{ 1 + \sqrt{1 + \sqrt{1 + ...}}}$$</p>
+<p><strong>Démonstration</strong></p>
+<p>Ce résultat, d'apparence complexe, est en réalité tout à fait trivial. </p>
+<p>Notons $x = \sqrt{ 1 + \sqrt{1 + \sqrt{1 + \ldots } } }$</p>
+<p>Étant donné que le motif se répète indéfiniment, nous avons en particulier </p>
+<p>$$x = \sqrt{ 1 + x }$$ </p>
+<p>d’où </p>
+<p>$$ x^2 = 1 + x $$</p>
+<p>qui correspond à l’équation caractéristique du nombre d’or.</p>
+<p>Ainsi 
+$$x = \sqrt{ 1 + \sqrt{1 + \sqrt{1 + \ldots } } } = \phi$$</p>
+<p>Une autre propriété remarquable du nombre d’or concerne son lien étroit avec la suite de Fibonacci. </p>
+<p>Considérons la suite $(F_n)$ telle que $F_0 = 1$, $F_1 = 1$ et $F_{n+2} = F_{n+1} + F_{n}$,
+autrement dit la suite dont les deux premiers termes sont égaux à 1 et dont chaque terme suivant est la somme des deux termes qui le précèdent. En voici les premiers termes </p>
+<p>1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, ...</p>
+<p>C’est la suite de <em>Fibonnaci</em>. </p>
+<p>Considérons alors $R_n = \frac{F_{n+1}}{F_{n}}$, le quotient des termes consécutifs de la suite au rang $n$. Cette suite $R_n$ possède une limite, laquelle est le nombre d’or, ce qui peut s'exprimer mathématiquement comme </p>
+<p>$$\lim_{n \to +\infty} R_n = \lim_{n \to +\infty} \frac{F_{n+1}}{F_{n}} = \phi$$</p>
+<p><strong>Démonstration</strong></p>
+<p>Rappelons dans un premier temps quelques éléments au sujet de la valeur absolue. </p>
+<p>La valeur absolue d’un nombre correspond à sa valeur numérique sans tenir compte du signe. </p>
+<p>Elle est notée $|x|$. </p>
+<p>Par exemple
+$$|-3| = 3$$
+$$|3| = 3$$</p>
+<p>D’un point de vue géométrique, la valeur absolue correspond à la distance séparant un nombre de l’origine du repère.</p>
+<p>Une propriété essentielle de la valeur absolue est la suivante.
+Puisque $(a-b) = -(b-a)$, nous avons $|a-b| = |b-a|$.</p>
+<p>Notons dans un premier temps que.</p>
+<p>$$\phi^2 = \phi + 1$$
+$$ \Leftrightarrow \phi = 1 + \frac{1}{\phi} $$</p>
+<p>Par ailleurs, et d’après la définition de la suite de Fibonacci </p>
+<p>$$ R_n = \frac{F_{n+1}}{F_n} = \frac{F_n + F_{n-1}}{F_n} = \frac{F_n}{F_n} + \frac{F_{n-1}}{F_n} = 1 + \frac{F_{n-1}}{F_n}$$</p>
+<p>Or </p>
+<p>$$ R_{n-1} = \frac{F_n}{F_{n-1}} $$</p>
+<p>D'où</p>
+<p>$$ \frac{1}{R_{n-1}} = \frac{F_{n-1}}{F_{n}}$$</p>
+<p>Et ainsi</p>
+<p>$$ R_n = 1 + \frac{F_{n-1}}{F_n} = 1 + \frac{1}{R_{n-1}} $$</p>
+<p>Nous pouvons alors en déduire que</p>
+<p>$$ \left| R_n - \phi \right| $$</p>
+<p>$$ = \left| \left( 1 + \frac{1}{R_{n-1}} \right) - \left( 1 + \frac{1}{\phi} \right) \right|$$</p>
+<p>$$ = \left| \frac{1}{R_{n-1}} - \frac{1}{\phi} \right| $$</p>
+<p>$$ = \left| \frac{\phi - R_{n-1}}{\phi R_{n-1}} \right| $$</p>
+<p>Mais puisque $\phi$ est strictement positif, il en est de même de $\frac{1}{\phi}$ et il est alors possible de le sortir de la valeur absolue</p>
+<p>$$ = \frac{1}{\phi} \left| \frac{\phi - R_{n-1}}{R_{n-1}} \right|$$</p>
+<p>Par ailleurs, $R_{n-1}$ étant plus grand que 1 (quotient de deux termes consécutifs d’une suite croissante), nous avons l’inégalité suivante </p>
+<p>$$ = \frac{1}{\phi} \left| \frac{\phi - R_{n-1}}{R_{n-1}} \right| $$</p>
+<p>$$ \leq \frac{1}{\phi} \left| \phi - R_{n-1} \right| $$</p>
+<p>Que nous pouvons réécrire </p>
+<p>$$ = \frac{1}{\phi} \left| \frac{\phi - R_{n-1}}{R_{n-1}} \right| $$</p>
+<p>$$ \leq \frac{1}{\phi} \left|  R_{n-1} - \phi \right| $$</p>
+<p>Nous obtenons en fin de compte</p>
+<p>$$ \left| R_n - \phi \right| \leq \frac{1}{\phi} \left| R_{n-1}  - \phi \right| $$</p>
+<p>Mais nous pouvons ici remarquer que le terme $|R_{n-1} - \phi|$
+correspond précisément au terme $\left| R_n - \phi \right|$ en $n - 1$</p>
+<p>Il est alors possible de répéter le processus de la façon suivante</p>
+<p>$$ \left| R_n - \phi \right| $$</p>
+<p>$$\leq \frac{1}{\phi} \left| R_{n-1} - \phi \right| $$ </p>
+<p>$$ \leq \left(\frac{1}{\phi}\right)^2 \left| R_{n-2} - \phi \right| \leq $$</p>
+<p>$$\ldots$$</p>
+<p>$$ \leq \left(\frac{1}{\phi}\right)^{n-1} \left| R_{1} - \phi \right|  $$</p>
+<p>Or puisque $0 &lt; 1/\phi &lt; 1$</p>
+<p>$$\lim_{n\to+\infty} \left(\frac{1}{\phi}\right)^{n-1} = 0$$</p>
+<p>Ce qui implique </p>
+<p>$$ \lim_{n\to+\infty} \left| R_n - \phi \right| = 0 $$</p>
+<p>Autrement dit, $R_n$ est contraint en $+\infty$ à se confondre à $\phi$ d'où en fin de compte </p>
+<p>$$ \lim_{n\to+\infty} \frac{F_{n+1}}{F_{n}} = \phi $$ </p>
+<p>QED. <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<h2 id="e">E</h2>
+<p>Le nombre $e$, aussi appelé constante de Neper ou nombre exponentiel, est une constante dont l'expression décimale commence par 2,7182. $e$ est définit comme la base du logarithme naturel, c’est à dire le nombre tel que</p>
+<p>$$ ln(e) = 1 $$</p>
+<p>On doit la notation $e$ au mathématicien suisse Euler. De de nombreuses conjectures existent quand à l'origine de sa notation. $e$ pourrait être un hommage à Euler ou encore $e$ comme première lettre de exponentielle.</p>
+<p>$e$ apparait régulièrement dans des expressions infinis particulièrement harmonieuses. </p>
+<p>En 1737, Euler a obtenu le développement en fraction continue de e suivant</p>
+<p>$$ e = 2 + \frac{1}{1 + \frac{1}{2 + \frac{1}{1 + \frac{1}{ 1 + \frac{1}{4 + \frac{1}{1 + ...} } }} } } $$</p>
+<p>Le schéma étant à partir de la deuxième fraction 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, 1, 1 10, ... 2n, 1, 1, 2(n+1), ... à l'infini</p>
+<p>De façon similaire, Euler a démontré que </p>
+<p>$$ e = 1 + \frac{1}{1} + \frac{1}{1 \times 2} + \frac{1}{1\times2\times3} + \ldots = \sum_{n=0}^{+\infty} \frac{1}{n!} $$</p>
+<p>C'est à partir de cette formule que Euler a démontré ce qui est considéré par bon nombre de mathématiciens comme <em>la plus belle formule des mathématiques</em></p>
+<p>$$ e^{i\pi} + 1 = 0$$</p>
+<p>Elle met en relation les quatres pilliers des mathématiques que sont l'analyse ($e$), l'algèbre ($i$), la géométrie ($\pi$) et l'arithmétique (0 et 1). </p>
+<p>$e$ fait également une apparition remarquable dans le calcul de la limite en $+\infty$ de $(1 + \frac{1}{n})^n$</p>
+<p>Si l’on calcule successivement les termes de la suite nous obtenons</p>
+<pre><code>n = 1 -&gt; 2.0
+n = 2 -&gt; 2.25
+n = 3 -&gt; 2.37037037037037
+n = 4 -&gt; 2.44140625
+n = 5 -&gt; 2.4883199999999994
+n = 6 -&gt; 2.5216263717421135
+n = 7 -&gt; 2.546499697040712
+n = 8 -&gt; 2.565784513950348
+n = 9 -&gt; 2.5811747917131984
+n = 10 -&gt; 2.5937424601000023
+n = 11 -&gt; 2.6041990118975287
+n = 12 -&gt; 2.613035290224676
+n = 13 -&gt; 2.6206008878857308
+n = 14 -&gt; 2.6271515563008685
+n = 15 -&gt; 2.6328787177279187
+n = 16 -&gt; 2.6379284973666
+n = 17 -&gt; 2.64241437518311
+n = 18 -&gt; 2.6464258210976865
+n = 19 -&gt; 2.650034326640442
+n = 20 -&gt; 2.653297705144422
+</code></pre>
+<p>La suite semble converger vers $e$. Il s’agit en réalité d’un théorème que nous pouvons exprimer de la façon suivante</p>
+<p>$$ \lim_{n\to+\infty} \left(1 + \frac{1}{n} \right)^n = e $$</p>
+<p><strong>Démonstration</strong></p>
+<p>Pour démontrer cette égalité il est tout d’abord important de remarquer que nous sommes en présence d’une forme indéterminée ($1^{\infty}$). Nous cherchons donc à lever l’indétermination.</p>
+<p>Pour cela, réécrivons dans un premier temps</p>
+<p>$$\left(1 + \frac{1}{n} \right)^n$$</p>
+<p>en </p>
+<p>$$ e^{\ln{\left(1 + \frac{1}{n} \right)^n}}$$</p>
+<p>Cette transformation est permise par la propriété suivante</p>
+<p>$e^{\ln{x}} = \ln{e^x} = x$</p>
+<p>De plus puisque $\ln{a^n} = n\ln{a}$ nous pouvons réécrire l’expression de la façon suivante</p>
+<p>$$ e^{n \ln{\left(1 + \frac{1}{n} \right)}}$$</p>
+<p>On pose alors $N = \frac{1}{N}$ de sorte que </p>
+<p>$$ \lim_{n\to+\infty} \left(1 + \frac{1}{n} \right)^n $$</p>
+<p>$$ = \lim_{n\to+\infty} e^{n \ln{\left(1 + \frac{1}{n} \right)}}$$</p>
+<p>$$ = \lim_{N\to0} e^{\frac{\ln{(1+N)}}{N}}$$</p>
+<p>$\frac{\ln(1+N)}{N}$ est toujours une forme indéterminée.
+Or puisque $\ln{1} = 0$ nous pouvons écrire</p>
+<p>$$ \lim_{N \to 0} \frac{\ln{(1+N)}}{N} $$
+$$ = \lim_{N \to 0} \frac{\ln{(1+N)} - \ln{(1)}}{N} $$</p>
+<p>Qui correspond alors précisément à l’expression de la dérivée de la fonction $ln(1+x)$ en $x = 0$. </p>
+<p>Calculons donc cette dérivée</p>
+<p>$$\left[ \ln{(1+x)} \right]' = \frac{1}{1+x} $$</p>
+<p>qui vaut $1$ en $x=0$.</p>
+<p>Dès lors </p>
+<p>$$ \lim_{N\to0} \frac{\ln{(1+N)}}{N} = 1$$</p>
+<p>Ainsi</p>
+<p>$$ \lim_{n\to+\infty} \left( 1 + \frac{1}{n} \right)^n $$</p>
+<p>$$ = \lim_{N\to0} e^{\frac{\ln{(1+N)}}{N}}$$</p>
+<p>$$ = e^1$$ 
+$$ = e $$</p>
+<p>QED. </p>
+<h2 id="pi">Pi</h2>
+<p>$\pi$ est un nombre dont la valeur approchée est 3,1415. Il est défini comme rapport constant de la circonférence d’un cercle à son diamètre.</p>
+<p>Depuis le XVIIe siècle, on le représente par la lettre grecque $\pi$, première du mot périmètre. On parle également de "constante d’Archimède". </p>
+<p>C’est une constante fondamentale en mathématiques et plus généralement en sciences car, au-delà de la géométrie, elle apparaît dans un très grand nombre de formules. </p>
+<p>Une première méthode "naïve" pour calculer $\pi$ est dûe au savant Archimède. </p>
+<p>Considérons un cercle de rayon 1. </p>
+<p><img alt="Illustration d'un cercle de rayon r=1" src="img/cercle-rayon-1.png" /></p>
+<p>Nous noterons P le périmètre de ce cercle. </p>
+<p>Par définition de $\pi$</p>
+<p>$$P = 2 \times \pi \times R $$ </p>
+<p>Or dans notre cas $R=1$ d'où</p>
+<p>$$ P = 2 \times \pi $$
+$$ \pi = \frac{P}{2} $$</p>
+<p>Ainsi, il suffit de connaître le périmètre de notre cercle pour en déduire $\pi$.</p>
+<p>Pour cela, traçons deux carrés A et B sur notre figure, respectivement inscrit et circonscrit.</p>
+<p><img alt="Illustration d'un cercle de rayon r=1 encadré par deux carrés respectivement inscrit et circonscrit" src="img/cercle-rayon-1-encadre.png" /></p>
+<p>De ces carrés, il est très simple de déterminer les périmètres $P_A$ et $P_B$.</p>
+<p>Ces deux périmètres encadrent le périmètre du cercle, de sorte que</p>
+<p>$$P_A \leq P \leq P_B$$</p>
+<p>Et puisque $\pi = \frac{P}{2}$, nous obtenons un encadrement de $\pi$</p>
+<p>$$ \frac{P_A}{2} \leq \pi \leq \frac{P_B}{2}$$</p>
+<p>Pour améliorer la précision de l’encadrement, il est alors possible d’utiliser des polygones à davantage de côtés tels que des pentagones, hexagones etc.</p>
+<p><img alt="Illustration de la méthode d'achimède en différents polygones" src="img/methode-archimede.png" /></p>
+<p>Voir une <a href="https://www.geogebra.org/m/GdFsXHXa">démonstration interactive</a>.</p>
+<p>$\pi$ peut également être approximé de manière plus calculatoire. </p>
+<p>Il apparaît par exemple dans le problème de Bâle qui consiste à calculer la valeur de la série </p>
+<p>$$\frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \ldots $$
+$$ = \sum_{n=1}^{+\infty} \frac{1}{n^2} $$</p>
+<p>Autrement dit la somme de l’inverse des carrés.</p>
+<p>Leonhard Euler répond à cette question en 1735, établissant que cette série vaut précisément $\frac{\pi^2}{6}$</p>
+<p>De fait, il donne la première valeur non-triviale de ce qui sera appelée par la suite la fonction zêta de Riemann, au cœur du plus grand problème des mathématiques modernes. </p>
+<p>$\pi$ apparaît également de manière plus surprenant dans certains phénomènes physiques. </p>
+<p>Imaginons le problème suivant.</p>
+<p>Nous disposons d’une petite aiguille et d’une feuille de papier sur laquelle nous avons tracé des droites à intervalles réguliers. </p>
+<p>Supposons que l’aiguille soit de longueur $l$ et que les droites soient séparées d’une distance $d$ ($d \geq l$). </p>
+<p>Si l’on décide de lancer l’aiguille sur la feuille, quelle est la probabilité que l’aiguille se place dans une position telle qu’elle coupe l’une des droites ? </p>
+<p>Le mathématicien français Georges Louis Lelecrc, Comte de Buffon en a donné la réponse en 1777, établissant que cette probabilité est exactement égale à</p>
+<p>$$ p = \frac{2}{\pi} \frac{l}{d} $$ </p>
+<p>Ce qui donne pour $l = d$</p>
+<p>$$ p = \frac{2}{\pi} $$</p>
+<p>Ce résultat signifie que l’on peut obtenir des valeurs approchées de $\pi$ par l’expérience. </p>
+<p>Implémentée sur ordinateur, cette méthode constitue un excellent exemple d’algorithmes randomisé, utilisant l’aléatoire pour déterminer une valeur précise, en l'occurrence $\pi$. </p>
+<p>Voir une <a href="https://www.ventrella.com/Buffon/">démonstration interactive</a>.</p>
+<p>Une autre formule, et par ailleurs l’une des premières, faisant intervenir $\pi$ a été découverte par le mathématicien indien Madhava au 14-ème / 15-ème siècle avant d’être redécouverte près de 200 ans plus tard en 1673 par le mathématicien et philosophe allemand Leibniz qui en porte désormais le nom. Elle s’énonce comme suit</p>
+<p>$$\frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \ldots = \sum_{n=0}^{+\infty} \frac{(-1)^n}{2n+1} $$</p>
+<p>Autrement dit, $\pi/4$ est égal à la somme des inverses des nombres impaires en faisant alterner les signes.</p>
+<p>À noter que cette série converge extrêmement lentement. Pour calculer $\pi$ avec une précision de 6 décimales, il faut près de deux millions d’itérations. </p>
+<p><strong>Démonstration</strong></p>
+<p>Quelques prérequis sont nécessaires pour pouvoir comprendre cette démonstration.</p>
+<p><strong>Notion de primitive</strong></p>
+<p>La primitive est en quelque sorte “l’inverse” de la dérivée. </p>
+<p>Soit $f$ une fonction, une primitive de $f$ notée $F$ est une fonction telle que 
+$$ F'(x) = f(x) $$</p>
+<p>Par exemple, une primitive de $f(x) = x^2$ pourrait être 
+$$ \frac{x^3}{3}$$
+car 
+$$ \left[\frac{x^3}{3}\right]' = x^2 $$</p>
+<p><strong>Notion d’intégrale</strong></p>
+<p>Soit $f$ une fonction. </p>
+<p>L’intégrale de $a$ à $b$ de la fonction $f$ correspond à l’aire sous la courbe représentative de $f$ entre $a$ et $b$.</p>
+<p><img alt="Représentation de l'air sous la courbe d'une fonction f entre deux points a et b" src="img/illustration-integrale.png" /></p>
+<p>Elle est notée </p>
+<p>$$ \int_a^b f(x) dx $$</p>
+<p>qui doit être lu “intégrale de $a$ à $b$ de $f(x)$ $dx$”.</p>
+<p>Cette intégrale est alors égale, d’après le théorème fondamental de l’analyse, à</p>
+<p>$$ F(b) - F(a) $$</p>
+<p>où $F$ est une primitive de $f$.</p>
+<p>Par exemple, l’aire entre 0 et 1 de la fonction $f(x) = x^2$ est </p>
+<p>$$ \int_0^1 x^2 dx = \frac{1^3}{3} - \frac{0^3}{3} = \frac{1}{3} $$</p>
+<p>Avant de s’engager dans la démonstration, nous allons démontrer un théorème intermédiaire (un lemme) dont nous aurons besoin par la suite. </p>
+<p>Ce lemme annonce que, pour tout $n\in N$ et $t\in R$ nous avons l’égalité suivante</p>
+<p>$$ \frac{1}{1 + t^2} = 1 - t^2 + t^4 - \ldots + t^{4n} - \frac{t^{4n+2}}{1 + t^2} $$</p>
+<p>Pour démontrer cela, nous allons partir d’une égalité bien connue concernant les suites géométriques.</p>
+<p>Soit $(u_n)$ une suite géométrique de premier terme $u_0 = 1$ et de raison $q$.</p>
+<p>Nous savons que la somme des n premiers termes de la suite vaut </p>
+<p>$$ S = 1 + q + q^2 + \ldots + q^n = \frac{1 - q^{n+1}}{1 - q} $$</p>
+<p>De même la somme des $2n$ premiers termes de la suite vaut</p>
+<p>$$ S = 1 + q + q^2 + ... + q^{2n} = \frac{1 - q^{2n+1}}{1 - q}$$</p>
+<p>Posons alors $q = -t^2$.</p>
+<p>Nous avons</p>
+<p>$$ 1 + (-t^2) + (-t^2)^2 + (-t^2)^3 + \ldots + (-t^2)^{2n} = \frac{1-(-t^2)^{2n+1}}{1 - (-t^2)} $$</p>
+<p>Que nous pouvons simplifier en </p>
+<p>$$ 1 - t^2 + t^4 - t^6 + \ldots + t^{4n} = \frac{1 + t^{4n+2} }{1 - t^2} $$</p>
+<p>D’où, en décomposant la fraction de droite</p>
+<p>$$ 1 - t^2 + t^4 - t^6 + \ldots + t^{4n} = \frac{1}{1-t^2} + \frac{t^{4n+2}}{1-t^2} $$ </p>
+<p>Et ainsi </p>
+<p>$$ \frac{1}{1-t^2} = 1 - t^2 + t^4 - t^6 + \ldots + t^{4n} - \frac{t^{4n+2}}{1-t^2} $$</p>
+<p>Ce qu’il fallait démonter. </p>
+<p>Attaquons nous maintenant au résultat en lui-même. </p>
+<p>Nous avons donc d’après le lemme précédent :</p>
+<p>$$ \frac{1}{1-t^2} = 1 - t^2 + t^4 - t^6 + \ldots + t^{4n} - \frac{t^{4n+2}}{1-t^2} $$</p>
+<p>Considérons un alors réel $x$ tel que $0 \leq x \leq 1$.</p>
+<p>Étant donné que les deux membres sont égaux, il en est de même de leurs intégrales respectives entre $0$ et $x$. De sorte que </p>
+<p>$$ \int_0^x \frac{1}{1-t^2} dt = \int_0^x \left( 1 - t^2 + t^4 - t^6 + \ldots + t^{4n} - \frac{t^{4n+2}}{1-t^2} \right) dt $$</p>
+<p>$$ = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \ldots + \frac{x^{4n+1}}{4n+1} - R_n(x) $$</p>
+<p>où </p>
+<p>$$R_n(x) = \int_0^x \frac{t^{4n+2}}{1+t^2} dt $$</p>
+<p>Or puisque $t^2 \geq 0$ nous avons </p>
+<p>$$1 \leq 1 + t^2$$</p>
+<p>De sorte que </p>
+<p>$$0 \leq R_n(x) \leq \int_0^x t^{4n+2} dt$$</p>
+<p>d'où </p>
+<p>$$0 \leq R_n(x) \leq \frac{x^{4n+3}}{4n+3}$$</p>
+<p>Mais puisque $0 \leq x \leq 1$ il est clair que </p>
+<p>$$\frac{x^{4n+3}}{4n+3} \leq \frac{1}{4n+3}$$</p>
+<p>D'où </p>
+<p>$$ \lim_{n\to+\infty} \frac{1}{4n+3} = 0 $$</p>
+<p>implique que</p>
+<p>$$ \lim_{n\to+\infty} R_n(x) = 0$$</p>
+<p>Et nous obtenons ainsi</p>
+<p>$$ \int_0^x \frac{1}{1+t^2} dt = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \ldots $$</p>
+<p>Mais puisque la dérivée de $\arctan{(t)}$ est $\frac{1}{1+t^2}$ nous avons par définition d’une primitive</p>
+<p>$$ \int_0^x \frac{1}{1 + t^2} dt = \arctan{(x)} - \arctan{(0)} = \arctan{(x)}$$</p>
+<p>dès lors </p>
+<p>$$ \arctan{(x)} = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \ldotp $$</p>
+<p>Et en prenant $x = 1$ : </p>
+<p>$$ \arctan{(1)} = 1 - \frac{1^3}{3} + \frac{1^5}{5} - \frac{1^7}{7} + \ldotp $$</p>
+<p>Autrement dit</p>
+<p>$$ \frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \ldots $$</p>
+<p>QED. </p>
+<h2 id="annexe">Annexe</h2>
+<p>Voici quelques ressources pour approfondir le sujet.</p>
+<p>Chacune d’entre elle est précédée d’un certain nombre d’étoiles suivant sa complexité, allant d’une étoile (*) pour les plus faciles à trois étoiles (***) pour les plus complexes.</p>
+<ul>
+<li>(**) Une vidéo qui démystifie le nombre d'or en étudiant son histoire. <a href="https://www.youtube.com/watch?v=ku6bCLx9roY">Aux origines du nombre d'or - El Jj</a></li>
+<li>(*) Un rapide tour d'horizon des propriétés les plus remarquables de $\pi$. <a href="https://www.youtube.com/watch?v=A6FWL6_Yp94">Carnets de voyages du nombre pi — Mickaël Launay </a></li>
+<li>(**) Un autre rapide tour d'horizon des propriétés les plus remarquables de $\pi$. <a href="https://www.youtube.com/watch?v=PxRPpdzmbUQ">Pourquoi pi est-il si fou ? — Science4All </a></li>
+<li>
+<p>(***) La page Wikipédia consacrée à $e$. <a href="https://fr.wikipedia.org/wiki/E_(nombre)#:~:text=Le%20nombre%20e%20est%20la,%2C%20vaut%20environ%202%2C71828.">e (nombre) — Wikipedia</a></p>
+</li>
+<li>
+<p>(***) La page Wikipedia consacrée au nombre $\pi$ <a href="https://fr.wikipedia.org/wiki/Pi">Pi — Wikipedia</a></p>
+</li>
+<li>(***) La page Wikipedia consacrée à $\phi$ <a href="https://fr.wikipedia.org/wiki/Nombre_d%27or">Nombre d'or — Wikipedia</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><em>quod erat demonstrandum</em>, l'équivalent en latin de « ce qu'il fallait démontrer » (CQFD)&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+        <hr>
+
+        <div class="flex space-between">
+            <div class="author">
+                Raphaël Goutmann & Louise Marsollier & Baptiste Marielle
+            </div>
+            <div class="date">
+                26/01/2024
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- js -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
