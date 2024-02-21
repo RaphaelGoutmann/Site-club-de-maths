@@ -8,6 +8,9 @@ from utils.converter import markdown2html
 def log(msg):
     print(msg)
     
+def isHidden(post):
+    return ('hidden' in post['meta'].keys() and post['meta']['hidden'] == 'true')
+
 
 with open("config.yaml", "r") as configFile:
     config = yaml.safe_load(configFile)
@@ -82,7 +85,8 @@ posts_list = ""
 for post in posts:
     title = post["meta"]["title"]
     date  = post["meta"]["date"]
-    posts_list += f'<a href="{title}.html" class="post">{title} ({date})</a>'
+    if not isHidden(post) :
+        posts_list += f'<a href="{title}.html" class="post">{title} ({date})</a>'
 
 html = render(templates["index"], context = {
     "posts_list": posts_list,
