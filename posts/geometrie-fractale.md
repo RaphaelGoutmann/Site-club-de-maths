@@ -160,10 +160,9 @@ L'ensemble de Julia dépend de la valeur de $c$ choisie. Nous pourrions dès lor
   <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/9/9b/Julia-noe-cercle.ogg/Julia-noe-cercle.ogg.720p.vp9.webm" type="video/webm" />
 </video>
 
-## Ensemble de Mandelbrot
-
-
 L'ensemble de Julia est une fractale, en ce sens qu'elle présente une structure infiniment détaillée (sans pour autant être auto-similaire). 
+
+## Ensemble de Mandelbrot
 
 De la notion d'ensemble de Julia naît celle d'ensemble de Mandelbrot, du nom du mathématicien polono-franco-américain Benoît Mandelbrot. 
 
