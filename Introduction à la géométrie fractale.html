@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction à la géométrie fractale — Atelier</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo-notre-dame-providence.png">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- medium zoom -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj+Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            mediumZoom('img', {background: '#000'})
+        })
+    </script>
+
+    <!-- katex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false},
+              ]
+            });
+        });
+    </script>
+
+</head>
+<body>
+    
+    <div class="container">
+
+        <a class="no-text-decoration" href="index.html">← Revenir à l'accueil</a>
+
+        <h1>Introduction à la géométrie fractale</h1>
+
+        <div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#la-fonction-de-weierstrass">La fonction de Weierstrass</a></li>
+<li><a href="#les-poussieres-de-cantor">Les poussières de Cantor</a></li>
+<li><a href="#le-flocon-de-von-koch">Le flocon de Von Koch</a></li>
+<li><a href="#le-triangle-de-sierpinski">Le triangle de Sierpinski</a></li>
+<li><a href="#fractales-aleatoires">Fractales Aléatoires</a></li>
+<li><a href="#definition-dune-fractale">Définition d'une Fractale</a></li>
+<li><a href="#les-ensembles-de-julia">Les ensembles de Julia</a></li>
+<li><a href="#ensemble-de-mandelbrot">Ensemble de Mandelbrot</a></li>
+<li><a href="#annexe">Annexe</a></li>
+</ul>
+</div>
+<blockquote>
+<p>“Les nuages ne sont pas des sphères, les montagnes ne sont pas des cônes, les rivages ne sont pas des arcs de cercle, l'écorce d'un arbre n'est pas lisse et l'éclair ne trace pas de ligne droite. La nature est complexe et la géométrie fractale rend compte de cette complexité et permet de l'étudier.” — Benoît Mandelbrot</p>
+</blockquote>
+<h2 id="introduction">Introduction</h2>
+<p>Au X-ième siècle, apparaissent en mathématiques des objets pour le moins... étranges... Infiniment complexes, ils bouleversent la géométrie  euclidienne en vigueur jusqu'à lors amenant progressivement au développement d'une nouvelle théorie géométrique, la <em>géométrie fractale</em>. </p>
+<p>Le but de cet atelier est de présenter les principaux objets fractales rencontrés en mathématiques et de définir le plus clairement possible ce terme. Cette étude nous donnera l'occasion d'appréhender une nouvelle branche des mathématiques, l'analyse complexe.</p>
+<h2 id="la-fonction-de-weierstrass">La fonction de Weierstrass</h2>
+<p>En 1872, le mathématicien Allemand Karl Weierstrass présente à l'académie prussienne des sciences ce qui sera plus tard considéré comme le premier exemple de fractale. La <em>fonction de Weiestrass</em> se distingue en ceci qu'elle qu'elle est continue partout mais dérivables nul part. </p>
+<p>Elle est définit comme suit :
+$$ f(x) = \sum_{n=1}^{+\infty} b^n \cos(a^nx\pi) $$</p>
+<p>où $a$ est un entier impair, $b \in \left[0, 1\right[$ et $ab &gt; 1 + \frac{3}{2} \pi$</p>
+<p>Outre ces considérations purement <em>analytiques</em>, son graphe présente d'étranges propriétés géométriques.</p>
+<p><img alt="Représentation graphique de la fonction de Weierstrass" src="img/weierstrass.png" /></p>
+<p>La fonction apparaît en effet infiniment détaillée et présente surtout une remarquable <em>auto-similarité</em>. Agrandir le graphe sur un point précis dévoile systématiquement une version plus petite du graphe global et ce à l'infini.</p>
+<h2 id="les-poussieres-de-cantor">Les poussières de Cantor</h2>
+<p>Moins d'une décennie plus tard, le mathématicien Allemand Georg Cantor présente une autre construction autrement plus simple mais aux propriétés similaires : <em>les poussières de Cantor</em>.</p>
+<p>Considérons le segment $C_0 = [0,1]$.</p>
+<p>À la première étape nous divisons notre segment en trois parties égales ($[0, \frac{1}{3}], [\frac{1}{3}, \frac{2}{3}], [\frac{2}{3}, 1]$) et supprimons la partie centrale.  La figure ainsi obtenue correspond au segment $C_1 = [0, \frac{1}{3}] \cup [ \frac{2}{3}, 1]$</p>
+<p><img alt="Étapes de construction des poussières de Cantor" src="img/cantor-set.png" /></p>
+<p>De façon similaire, à la deuxième étape, nous divisons chacun des segments obtenus en trois parties et retirons celles du milieu, pour finalement aboutir au segment $C_2$ à 4 morceaux. </p>
+<p>De manière générale, pour passer du segment $C_k$ au segment $C_{k+1}$, nous divisions en $3$ les $2^k$ morceaux obtenus à l'étape $C_k$ et retirons les parties du milieu, obtenant ainsi $2^{k+1}$ morceaux.</p>
+<p>Il s'agit là d'une construction dite "itérative" où le résultat de chaque étape sert de matériaux à l'étape suivante. </p>
+<p>Les poussières de Cantor sont alors obtenues en réalisant cette procédure un nombre infini de fois ou, de manière plus formelle :</p>
+<p>$$ C = \bigcap_{i=1}^{+\infty} C_i $$ </p>
+<p><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>Une nouvelle fois, l'ensemble de Cantor présente la propriété d'auto-similarité (ce qui apparaît d'ailleurs clairement dans sa définition).</p>
+<h2 id="le-flocon-de-von-koch">Le flocon de Von Koch</h2>
+<p>Le mathématicien suédois Helge von Koch publie en 1904 ce qui sera appelé plus tard la <em>courbe de Von Koch</em>. </p>
+<p>Cette fractale reprend la construction itérative des poussières de Cantor tout en présentant les propriétés de continuité et de non dérivabilité de la fonction de Weierstrass. </p>
+<p>Partons  d'un segment $V_0$ d'une unité de longueur. </p>
+<p>Pour passer à l'étape suivante, nous découpons $V_0$ en trois parties, retirons la partie centrale et plaçons de part et d'autre du trou ainsi formé des segments de même longueurs que la partie retirée de sorte à former un triangle équilatéral. Nous obtenons alors $V_1$</p>
+<p><img alt="Étapes de construction du flocon de Von Koch" src="img/von-koch.png" /></p>
+<p>De la même manière, pour passer de l'étape $V_1$ à $V_2$, nous appliquons à chaque segment de $V_1$ cette même transformation. </p>
+<p>De façon générale, en notant $f$ la fonction qui à une certaine étape associe l'étape suivante et en notant $f^k$ la composée k-ième de f, <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> la <em>courbe de Von Koch</em> V est : </p>
+<p>$$V = \lim_{k \rightarrow +\infty} \left(f^k(V_0)\right)$$</p>
+<p>À nouveau, et par construction, la courbe de Von Koch présente cette propriété d'auto-similarité. </p>
+<h2 id="le-triangle-de-sierpinski">Le triangle de Sierpinski</h2>
+<p>Le mathématicien Polonais Waclaw Sierpinski découvre en 1915 le triangle de Sierpinski. </p>
+<p>Partons d'un triangle équilatéral plein $S_0$.</p>
+<p>Pour passer à l'étape suivante, nous traçons le triangle équilatéral reliant les milieux des côtés de $S_0$  et supprimons le triangle ainsi formé. Nous obtenons alors $S_1$ composé de 3 copies de $S_0$ réduites d'un facteur 2. </p>
+<p><img alt="Étapes de construction du triangle de Sierpinski" src="img/sierpinski-triangle.png" /></p>
+<p>De manière générale, pour passer de $S_k$ à $S_{k+1}$, nous supprimons le triangle central des $3^k$ triangles restants, donnant ainsi à naissance à $3^{k+1}$ triangles. </p>
+<p>En notant $f$ la fonction permettant de passer de l'étape $S_k$ à l'étape $S_{k+1}$, le triangle de Sierpinski S est alors définit comme : </p>
+<p>$$ S = \lim_{k \to+\infty} \left(f^k(S_0)\right) $$</p>
+<p>À nouveau, le triangle de Sierpinski présente, par construction, cette propriété d'auto-similarité. </p>
+<h2 id="fractales-aleatoires">Fractales Aléatoires</h2>
+<p>Il est également possible de générer des fractales de façon aléatoire / stochastique. Ce type de modèle est en particulier utilisé dans la modélisation de phénomènes physiques où la "régularité" des méthodes précédentes ne permet pas de représenter correctement les réalités du monde réel. </p>
+<p>L'une des fractales aléatoires les plus simples consiste en une généralisation d'une fractale déterministe, le "tapis de Sierpinski". 
+Considérons un carré $C_0$ de côté $1$. </p>
+<p>À la première étape, nous découpons $C_0$ en 9 sous-carrés égaux de côtés $\frac{1}{3}$. Nous fixons alors une probabilité $0 &lt; p &lt; 1$ et choisissons de supprimer chacun des sous-carrés selon cette probabilité. De la même manière, pour passer de $C_1$ à $C_2$, nous découpons chacun des sous-carrés restants en 9 parts égales et répétons pour chacun d'entre eux cette expérience aléatoire. </p>
+<p>De manière générale, en notant $f$ la fonction permettant de passer de l'étape $C_k$ à l'étape $C_{k+1}$ , \textbf{un} tapis de Sierpinski associé à la probabilité $p$ correspond alors à : </p>
+<p>$$ T = \lim_{n\to+\infty} f^k(C_0)$$</p>
+<p><img alt="Trois exemples de tapis de Sierpinski aléatoires" src="img/random-sierpinski-carpet.png" /></p>
+<p>La notion de fractales aléatoires est par exemple particulièrement utile en informatique dans la génération de paysages aléatoires. 
+Pensons par exemple au jeu vidéo minecraft dont la structure du monde peut s'apparenter à un objet fractale. </p>
+<h2 id="definition-dune-fractale">Définition d'une Fractale</h2>
+<p>Avec tous ces exemples en tête, il est désormais possible d'approcher une définition du concept de "fractale" comme possédant une ou plusieurs des propriétés suivantes : </p>
+<ul>
+<li>Présence de détails à une échelle arbitrairement petite ;</li>
+<li>Une structure trop irrégulière pour être décrite avec les outils de la géométrie traditionnelle ; </li>
+<li>Propriété d'auto-similarité</li>
+</ul>
+<p>Par ailleurs, il est possible de distinguer dans ce large éventail d'objets mathématiques trois "catégories" générales de fractales : </p>
+<ul>
+<li>Fractales aléatoires (telles que le tapis de Sierpinski aléatoire) </li>
+<li>Fractales construites sur des fonctions itérées (telles que le flocon de Von Koch, les poussières de Cantor etc.) </li>
+<li>Fractales construites sur des relations de récurrences (telles que les ensembles de julia et l'ensemble de Mandelbrot)</li>
+</ul>
+<h2 id="les-ensembles-de-julia">Les ensembles de Julia</h2>
+<p>Les mathématiciens français Pierre Fatou et Gaston Julia développent au début du XXe siècle une nouvelle branche des mathématiques, la dynamique holomorphe, ouvrant la porte à de nouvelles constructions fractales, parmi lesquelles les ensemble de Julia et de Fatou. </p>
+<p>Il s'agit de deux ensembles complémentaires définis dans un cadre très large que nous restreindront à un cas particulier. </p>
+<p>Considérons la suite à valeurs complexes $(z_n)$ telle que $z_0 \in \mathbb{C}$ et
+$$z_{n+1} = z_n^2 + c$$
+Pour $c\in\mathbb{C}$ fixé, les différentes valeurs de $z_0$ peuvent donner naissance soit à une suite bornée soit à une suite dont les termes tendent progressivement vers l'infini. </p>
+<p>L'ensemble de Julia pour un certain $c\in\mathbb{Z}$ est alors définit comme <em>la frontière</em> de l'ensemble des $z_0 \in \mathbb{C}$ tels que la suite $(z_n)$ associée est bornée. </p>
+<p>Il est alors possible de représenter cet ensemble dans le plan en coloriant d'une certaine couleur les points de l'ensemble, et d'une autre les points du complémentaire. Mieux encore, nous pouvons étudier la vitesse avec laquelle la suite diverge vers l'infini et colorier les points du complémentaire selon cette valeur. </p>
+<p><img alt="Ensemble de Julia pour $c = 0,3 + 0,5 i$." src="img/julia-1.png" />
+<img alt="Ensemble de Julia pour $c = 0,285 + 0,01 i$." src="img/julia-2.jpg" />
+<img alt="Ensemble de Julia pour $c = –1,41 + 0,010 i$." src="img/julia-3.jpeg" />
+<img alt="Ensemble de Julia pour $c = –0,038 + 0,975 i$." src="img/julia-4.jpeg" />
+<img alt="Ensemble de Julia pour $c = −0,4 + 0,6 i$" src="img/julia-5.png" />
+<img alt="Ensemble de Julia pour $c = −0,8+0,156 i$." src="img/julia-6.png" />
+<img alt="Ensembles de Julia pour différentes valeurs de c." src="img/julia-7.png" /></p>
+<p>L'ensemble de Julia dépend de la valeur de $c$ choisie. Nous pourrions dès lors imaginer faire varier ce paramètre, obtenant ainsi un "film", dont chaque image représente un ensemble de julia pour un certain paramètre $c\in\mathbb{C}$.</p>
+<video controls width="100%">
+  <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/9/9b/Julia-noe-cercle.ogg/Julia-noe-cercle.ogg.720p.vp9.webm" type="video/webm" />
+</video>
+
+<h2 id="ensemble-de-mandelbrot">Ensemble de Mandelbrot</h2>
+<p>L'ensemble de Julia est une fractale, en ce sens qu'elle présente une structure infiniment détaillée (sans pour autant être auto-similaire). </p>
+<p>De la notion d'ensemble de Julia naît celle d'ensemble de Mandelbrot, du nom du mathématicien polono-franco-américain Benoît Mandelbrot. </p>
+<p>Plutôt que d'observer le comportement de $(z_n)$ lorsque l'on fait varier $z_0$, on se propose ici de fixer $z_0 = 0$ et de faire varier le paramètre $c$. De la même manière que précédemment, l'ensemble de Mandelbrot peut alors être définit comme l'ensemble de toutes les valeurs de $c$ pour lesquelles la suite $z_n$ est bornée, en posant $z_0 = 0$. </p>
+<p>Dans ce contexte, chaque point du plan complexe est associé à une fractale de Julia. En particulier, il est possible de démontrer qu'un point $z\in\mathbb{C}$ appartient à l'ensemble de Mandelbrot si et seulement si la fractale de Julia associée est connexe, i.e d'un seul morceau. </p>
+<p>À nouveau, il est possible de tracer l'ensemble de Mandelbrot dans le plan, en faisant varier les couleurs des points du complémentaire suivant leur vitesse de divergence. (<a href="https://mandel.gart.nz/">explorer l'ensemble de mandelbrot</a>)</p>
+<p><img alt="Ensemble de Mandelbrot" src="img/mandelbrot.jpeg" /></p>
+<p>Contrairement aux ensembles de Julia, l'ensemble de Mandelbrot présente la propriété (ultime) d'auto-similarité. Il est alors possible de retrouver dans l'ensemble de Mandelbrot un version miniature mais strictement identique à l'ensemble global. </p>
+<p>La construction de l'ensemble de Mandelbrot peut se généraliser en prenant comme suite support non plus $z^2 + c$ mais $z^d + c$ avec $d &gt; 2$. Nous obtenons alors des "multibrot". </p>
+<p><img alt="Multibrot associé à la puissance 3" src="img/multibrot-3.png" />
+<img alt="Multibrot associé à la puissance 4" src="img/multibrot-4.png" />
+<img alt="Multibrot associé à la puissance 5" src="img/multibrot-5.png" />
+<img alt="Multibrot associé à la puissance 6" src="img/multibrot-6.png" /></p>
+<h2 id="annexe">Annexe</h2>
+<p>Voici quelques ressources pour approfondir le sujet.</p>
+<p>Chacune d’entre elle est précédée d’un certain nombre d’étoiles suivant sa complexité, allant d’une étoile (*) pour les plus faciles à trois étoiles (***) pour les plus complexes : </p>
+<ul>
+<li>(*) Une vidéo d'introduction au concept de fractales <a href="https://www.youtube.com/watch?v=iFA3g_4myFw">Les fractales - Mickaël Launay</a></li>
+<li>(**) Une vidéo sur les fractales de Julia et l'ensemble de Mandelbrot <a href="https://www.youtube.com/watch?v=Y4ICbYtBGzA">Deux (deux ?) minutes pour Mandelbrot — El Jj</a></li>
+<li>(***) La page Wikipedia consacrée aux ensembles de Julia <a href="https://fr.wikipedia.org/wiki/Ensemble_de_Julia">Ensemble de Julia — Wikipedia</a></li>
+<li>(***) La page Wikipedia consacrée à l'ensemble de Mandelbrot <a href="https://fr.wikipedia.org/wiki/Ensemble_de_Mandelbrot">Ensemble de Mandelbrot — Wikipedia</a></li>
+<li>(**) La page Wikipedia consacrée à la notion de Fractales <a href="https://fr.wikipedia.org/wiki/Fractale">Fractales — Wikipedia</a></li>
+<li>(***) Une conférence sur les fractales aléatoires <a href="https://www.youtube.com/watch?v=klaTVO7u5-M">Vincent Beffara, Fractales aléatoires — Institut Henri Poincaré</a></li>
+<li>(***) Un papier introduisant les concepts mathématiques sous-jacents à la théorie des fractales (en anglais) <a href="https://www.cs.ox.ac.uk/people/fergus.cooper/site/publications/2011Cooper_IntroductionToFractals.pdf">Introduction to Fractals and Julia Sets — Fergus Cooper</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Le symbole $\bigcap$ est l'équivalent du symbole $\sum$ pour l'intersection. Ainsi, $\bigcap_{i=1}^{+\infty} = C_1 \cap C_2 \cap C_3 \cap C_4 \ldots $&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>de sorte que $f(V_0) = V_1$, $f(V_1) = f^2(V_0) = V_2$ et, de manière générale $f^k(V_0) = V_k$&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+        <hr>
+
+        <div class="flex space-between">
+            <div class="author">
+                Raphaël Goutmann & Louise Marsollier & Lucas Pessard
+            </div>
+            <div class="date">
+                01/03/2024
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- js -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
