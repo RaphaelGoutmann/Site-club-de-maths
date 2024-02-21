@@ -85,7 +85,7 @@ posts_list = ""
 for post in posts:
     title = post["meta"]["title"]
     date  = post["meta"]["date"]
-    if not isHidden(post) :
+    if not isHidden(post):
         posts_list += f'<a href="{title}.html" class="post">{title} ({date})</a>'
 
 html = render(templates["index"], context = {
