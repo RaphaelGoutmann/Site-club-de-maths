@@ -79,6 +79,7 @@ $$V = \lim_{k \rightarrow +\infty} \left(f^k(V_0)\right)$$
 
 À nouveau, et par construction, la courbe de Von Koch présente cette propriété d'auto-similarité. 
 
+<!-- 
 
 ## Le triangle de Sierpinski
 
@@ -96,7 +97,7 @@ En notant $f$ la fonction permettant de passer de l'étape $S_k$ à l'étape $S_
 
 $$ S = \lim_{k \to+\infty} \left(f^k(S_0)\right) $$
 
-À nouveau, le triangle de Sierpinski présente, par construction, cette propriété d'auto-similarité. 
+À nouveau, le triangle de Sierpinski présente, par construction, cette propriété d'auto-similarité.  -->
 
 ## Fractales Aléatoires
 
@@ -129,6 +130,43 @@ Par ailleurs, il est possible de distinguer dans ce large éventail d'objets mat
 - Fractales aléatoires (telles que le tapis de Sierpinski aléatoire) 
 - Fractales construites sur des fonctions itérées (telles que le flocon de Von Koch, les poussières de Cantor etc.) 
 - Fractales construites sur des relations de récurrences (telles que les ensembles de julia et l'ensemble de Mandelbrot)
+
+Mais existe-t-il une définition plus générale du concept de fractales ?
+
+## La dimension de Hausdorff-Besicovitch 
+
+Benoît Mandelbrot, pionnier de l'étude des fractales, a fournit une définition convenable et relativement générale du concept de fractale. Nous nous contenterons d'en esquisser les concepts mathématiques sous-jacents.
+
+Nous pouvons parfaitement concevoir intuitivement le concept de dimension dans le cas d'espaces "simples". Une droite est de dimension 1, un plan de dimension 2, l'espace de dimension 3 etc. Elle peut être définit comme le nombre minimal de coordonnées nécessaires pour identifier un point de l'espace en question. 
+
+La dimension de Hausdorff-Besicovitch (ou dimension de Hausdorff) fournit une autre manière d'appréhender le concept de dimension d'un ensemble. Considérons un ensemble $U$ non vide [^3]. On note $|U|$ le *diamètre* de U définit comme : 
+$$ |U| = \sup \{|x-y| : x,y \in U\} $$
+
+[^3]: Il s'agit en réalité d'une partie d'un espace métrique.
+
+i.e la borne supérieur des distances de deux élements de l'ensemble ou, de façon similaire, la plus grande distance séparant deux élements de l'ensemble. 
+Il est alors possible de se demander : étant donné un certain ensemble $M$, combien de sous ensemble de diamètre au plus $\delta$ sont nécessaires pour couvrir entièrement $M$ ?
+
+Pour $\delta > 0$, nous notons $N(\delta)$ ce nombre. Il est clair que $N(\delta)$ croît à mesure que $\delta$ décroît. Nous nous interessons alors au comportement de ce nombre lorsque $\delta$ tend vers $0$.
+
+Dans le cas d'un segment de longueur 1, il est clair que :
+$$ N(\delta) = \frac{1}{\delta} $$
+
+Dans le cas d'un segment de longueur 2, nous avons cette fois-ci : 
+$$ N(\delta) = \frac{2}{\delta} $$
+
+Lorsque l'on fait tendre $\delta$ vers 0, le $N(\delta)$ associé au segment de longueur 2 croît proportionnellement au $N(\delta)$ associé au segment de longueur $1$, en l'occurence $\frac{1}{\delta} = \delta^{-1}$.
+
+La dimension de Hausdorff correspond alors précisément à l'exposant associé au $\delta$, qui semble se confondre, dans les cas simples et réguliers, avec la dimension "classique". 
+
+Elle mesure en réalité le niveau d'intrication de l'ensemble. 
+
+Les fractales sont alors caractérisées comme étant les ensemble dont la dimension de Hausdorff excède la dimension "classique". Le flocon de Von Koch, par exemple, possède une dimension de Hausdorff de $\frac{\ln(4)}{\ln(3)} \approx 1,26$, légèrement au dessus de la dimension 1 associée à une courbe. Dès lors, le flocon de Von Koch peut être considéré, selon la définition de Benoît Mandelbrot, comme une fractale. 
+
+Cette définition, en plus d'être délicate à manipuler, présente toutefois certaines limites. Définir le concept de fractale semble être une quête vaine, le paysage fractale étant bien trop large pour être rassemblé sous une unique propriété commune.[^4]:
+La définition généralement admise est alors celle de la section précédente, définissant une fractale comme un ensemble respectant une ou plusieurs propriétés caractéristiques.
+
+[^4]: Benoît Mandelbrot a lui même écrit dans son ouvrage *Fractales, hasard et finance* "Il est vrai que [mes textes] avaient eu l'imprudence de proposer, pour le concept de fractale, une « définition pour voir », ou « définition tactique ». Ses défauts majeurs, vite apparus, me l'ont fait retirer dès le deuxième tirage."
 
 ## Les ensembles de Julia
 
