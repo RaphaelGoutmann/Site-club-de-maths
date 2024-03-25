@@ -2,7 +2,6 @@
 title: Introduction à la géométrie fractale
 author: Raphaël Goutmann & Louise Marsollier & Lucas Pessard
 date: 01/03/2024
-hidden: true
 ---
 
 [TOC]
