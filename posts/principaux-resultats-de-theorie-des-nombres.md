@@ -381,7 +381,11 @@ Soit de façon condensée
 
 $$\zeta(x) = \prod_{p\in\mathbb{P}} \frac{1}{1-p^{-x}} $$
 
-## Bibliographie
+## Annexe
+
+Voici quelques ressources pour approfondir le sujet.
+
+Chacune d’entre elle est précédée d’un certain nombre d’étoiles suivant sa complexité, allant d’une étoile (\*) pour les plus faciles à trois étoiles (\*\*\*) pour les plus complexes : 
 
 - (***) Une vidéo d'introduction à la fonction zêta et à la conjecture de Riemann [Devenir RICHE grâce aux maths (La fonction Zeta de Riemann) — Axel Arno](https://www.youtube.com/watch?v=KKoxMe2T7zo)
     
