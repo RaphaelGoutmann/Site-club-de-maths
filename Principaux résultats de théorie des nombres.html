@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principaux résultats de théorie des nombres — Atelier</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo-notre-dame-providence.png">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- medium zoom -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj+Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            mediumZoom('img', {background: '#000'})
+        })
+    </script>
+
+    <!-- katex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false},
+              ]
+            });
+        });
+    </script>
+
+</head>
+<body>
+    
+    <div class="container">
+
+        <a class="no-text-decoration no-print" href="index.html">← Revenir à l'accueil</a>
+
+        <h1>Principaux résultats de théorie des nombres</h1>
+
+        <div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#rappels">Rappels</a></li>
+<li><a href="#theoreme-fondamental-de-larithmetique">Théorème fondamental de l'arithmétique</a></li>
+<li><a href="#infinite-des-nombres-premiers">Infinité des nombres premiers</a></li>
+<li><a href="#lemme-de-gauss">Lemme de Gauss</a></li>
+<li><a href="#demonstration">Démonstration</a></li>
+<li><a href="#petit-theoreme-de-fermat">Petit théorème de Fermat</a></li>
+<li><a href="#le-crible-deratosthene">Le crible d'Ératosthène</a></li>
+<li><a href="#introduction-a-la-fonction-zeta">Introduction à la fonction zêta</a></li>
+<li><a href="#bibliographie">Bibliographie</a></li>
+</ul>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>La théorie des nombres, branche des mathématiques étudiant les propriétés relatives aux nombres premiers, est généralement étudiée en classe de terminal. Les principaux résultats y sont brièvement exposés, passant sous silence leur démonstration pourtant fondamentale, tant par leur esthétique mathématique que pour leur intérêt dans la compréhension profonde des concepts.</p>
+<p>Cet article constitue donc un tour d'horizon des principaux résultats de théorie des nombres, ainsi que de leur démonstration.</p>
+<p>Il peut être lu sans pré-requis particuliers.</p>
+<h2 id="rappels">Rappels</h2>
+<p>Soit $n\in\mathbb{N}$. $n$ est dit premier si et seulement si $n$ n'est divisible que par $1$ <strong>et</strong> par lui-même.</p>
+<p>En particulier, $1$ <strong>n'est pas</strong> un nombre premier.</p>
+<p>Nous noterons par la suite $\mathbb{P}$ l'ensemble des nombres premiers, de sorte que : </p>
+<p>$$ \mathbb{P} = { 2, 3, 5, 7, 11, 13, 17 ... } $$</p>
+<p>On dit de deux entiers qu'ils sont premiers entre eux si leur seul diviseur commun est $1$. En particulier, tout nombre premier est premier avec tous les entiers inférieurs (strictement) à lui-même.</p>
+<p>Le théorème de Bachet-Bézout affirme que deux entiers $a$ et $b$ sont premiers entre eux si et seulement si il existe deux entiers $u$ et $v$ tels que :</p>
+<p>$$au + bv = 1$$</p>
+<p>La factorielle d'un certain entier $n$ correspond au produit de cet entier par tous les entiers inférieurs à lui-même. Par exemple, $9! = 9 \times 8 \times \ldots \times 2 \times 1$. On admet par convention que $0! = 1$.</p>
+<p>Soient $k$ et $n$ deux entiers. On appelle <em>coefficient binomial</em> et on note $\binom{n}{k}$ le nombre de parties (non ordonnées) de $k$ éléments dans un ensemble à $n$ éléments.</p>
+<p>On a par définition :</p>
+<p>$$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$</p>
+<p>Ces coefficients binomiaux apparaissent dans la formule du binôme de Newton affirmant que pour tout réels $a$ et $b$ et pour tout entier naturel $n$ : </p>
+<p>$$(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}$$</p>
+<p>En particulier :</p>
+<p>$$(a+1)^n = \sum_{k=0}^{n} \binom{n}{k} a^k$$</p>
+<h2 id="theoreme-fondamental-de-larithmetique">Théorème fondamental de l'arithmétique</h2>
+<p>L'intérêt de l'étude des nombres premiers réside en ceci qu'ils sont le ciment des nombres entiers. Le théorème fondamental de l'arithmétique affirme en effet que</p>
+<div class="theorem" data-name="Théorème fondamental de l'arithmétique">
+    Tout entier naturel $n$ peut s'écrire sous forme unique (à l'ordre près) comme produit de nombres premiers.
+</div>
+
+<p>Autrement dit, les nombre premiers permettent de construire tous les nombres et ce, de manière unique.</p>
+<p>Par exemple $20 = 2^2 \cdot 5$ ou encore $65 = 13 \cdot 5$.</p>
+<p>La démonstration de ce théorème se décompose en deux parties : démontrer d'une part <em>l'existence</em> de cette décomposition et d'autre part <em>l'unicité</em>.</p>
+<p><strong>Existence</strong></p>
+<p>Soit un entier naturel $n$.</p>
+<p>Si $n$ est premier, alors nous n'avons rien à démontrer.</p>
+<p>Dans le cas contraire, $n$ possède des diviseurs compris entre $1$ et $n$. Posons $m$ le plus petit de ces diviseurs, il est alors premier. Si ce n'était pas le cas, il existerai un certain entier $l$ tel que : </p>
+<p>$$1 &lt; l &lt; m $$ </p>
+<p>et :</p>
+<p>$$l | m$$ </p>
+<p>Mais puisque $l|m$ et $m|n$ nous aurions en particulier $l|n$, ce qui contredit la définition de $m$ comme étant le plus petit diviseur de $n$. Donc $m$ est nécessairement premier d'où $n$ est divisible par un nombres premier.</p>
+<p>Nous pouvons donc réécrire :</p>
+<p>$$n = p_1 n_1, 1 &lt; n_1 &lt; n$$</p>
+<p>À nouveau, si $n_1$ est premier, la démonstration s'achève et, si il ne l'est pas, il est divisible par un nombre premier $p_2$ de sorte que :</p>
+<p>$$n = p_1 n_1 = p_1 p_2 n_2, 1 &lt; n_2 &lt; n_1 &lt; n$$</p>
+<p>En répétant l'opération suffisamment de fois, et comme le $n_i$ restant diminue à chaque itération, nous obtenons finalement :</p>
+<p>$$n = p_1 p_2 \ldots p_n $$</p>
+<p>qui correspond bien à la forme recherchée. L'existence est donc prouvée.</p>
+<p>Comme les $p_i$ ne sont pas nécessairement distincts les uns des autres, il est possible de réécrire cette forme de façon plus commode : </p>
+<p>$$n = p_1^{\alpha_1} p_2^{\alpha_2} \ldots p_n^{\alpha_n} $$</p>
+<p>Nous appellerons cette forme la <em>forme standard</em> de l'entier $n$.</p>
+<p><strong>Unicité</strong></p>
+<p>Il est clair, d'après, la première partie de la démonstration, que si un nombre premier $p$ divise un produit de facteurs premiers $p_1 \ldots p_n$ alors $p$ est nécessairement l'un des $p_i$.</p>
+<p>Appuyons nous sur ce résultat pour démontrer l'unicité de la <em>forme standard</em>.</p>
+<p>Supposons par l'absurde dans un premier temps qu'il existe deux décompositions en facteurs premiers, de sorte que : </p>
+<p>$$n = p_1^{\alpha_1} p_2^{\alpha_2} \ldots p_k^{\alpha_k} = q_1^{\beta_1} q_2^{\beta_2} \ldots q_j^{\beta_j} $$</p>
+<p>Puisque les deux membres sont égaux et que tout $p_i$ divise le membre de gauche, alors en particulier tout $p_i$ divise le membre de droite, de sorte que, d'après le lemme précédent, tous les $p$ sont des $q$ et, de la même manière, tous les $q$ sont des $p$. Nous avons donc $k=j$ et $p_i = q_i$ et ce, pour tout $i$.</p>
+<p>Il reste alors à démontrer que les exposants sont eux aussi identiques, i.e que $\alpha_i = \beta_i$ pour tout $i$. Supposons par l'absurde que $\alpha_i &gt; \beta_i$. En divisant des deux côtés par $p_i^{\beta_i}$ nous obtenons : </p>
+<p>$$p_1^{\alpha_1} \ldots p_i^{\alpha_i - \beta_i} \ldots p_k^{\alpha_k} = p_1^{\beta_1} \ldots p_{i-1}^{\beta_{i-1}} p_{i+1}^{\beta_{i+1}} \ldots p_{k}^{\beta_{k}}$$</p>
+<p>Le membre de gauche est divisible par $p_i$ mais pas le membre de droite. Les deux membres étant égaux, il s'agit là d'une contradiction. Nous aurions obtenu la même contradiction en supposant $\beta_i &gt; \alpha_i$. Nous avons donc nécessairement $\alpha_i = \beta_i$, ce qui achève la démonstration.</p>
+<p>À noter que considérer $1$ comme un nombre premier n'aurait pas permis d'avoir une décomposition unique.</p>
+<p>Un corollaire clair à ce théorème porte le nom de <em>lemme d'euclide</em> et affirme que :</p>
+<div class="lemma" data-name="Lemme d'Euclide">
+    Soient $a$ et $b$ deux entiers et $p$ un nombre premier. Si $p|ab$ alors $p|a$ ou $p|b$.
+</div>
+
+<h2 id="infinite-des-nombres-premiers">Infinité des nombres premiers</h2>
+<p>L'étude des nombres premiers mène rapidement à s'interroger sur leur répartition et en particulier sur leur quantité.</p>
+<p>Euclide affirme, dans ses <em>Éléments</em> (proposition 20 du livre IX), qu'il en existe une infinité et en propose une démonstration, sans doute l'une des plus importante de l'histoire des mathématiques.</p>
+<div class="theorem" data-name="Théorème d'Euclide sur les nombres premiers">
+    Il existe une infinité de nombres premiers.
+</div>
+
+<p>Raisonnons pour cela par l'absurde.</p>
+<p>Supposons dans un premier temps qu'il en existe un nombre fini, disons un nombre $n$. Autrement dit : </p>
+<p>$$\mathbb{P} = { p_1, p_2, \ldots, p_n }$$</p>
+<p>Posons alors $p = p_1 p_2 \ldots p_n + 1$.</p>
+<p>$p$ est un entier et donc, d'après le théorème fondamental de l'arithmétique, divisible par au moins un facteur premier $p_i$.</p>
+<p>Ainsi, $p_i | p_1 p_2 \ldots p_n $ et $p_i | p =  p_1 p_2 \ldots p_n + 1$ donc $p_i | p_1 p_2 \ldots p_n + 1 - p_1 p_2 \ldots p_n = 1$, ce qui est absurde.</p>
+<p>Donc quelque soit la liste finie de nombres premiers donnée, il sera toujours possible d'en construire un n'appartenant pas à cette liste. $\mathbb{P}$ elle est donc nécessairement de cardinal (de taille) infini.</p>
+<p>Une autre manière de démontrer l'infinité des nombres premiers consiste à approximer leur répartition à l'aide d'une fonction.</p>
+<p>Considérons la fonction $\pi(x)$ de $\mathbb{N}$ dans $\mathbb{N}$ qui associe à chaque entier le nombre de nombres premiers inférieurs ou égaux à $x$.</p>
+<p>Par exemple, $\pi(2) = 1$, $\pi(3) = 2$ et $\pi(4) = 2$.</p>
+<p>Le théorème des nombres premiers affirme alors que</p>
+<div class="theorem" data-name="Théorème des nombres premiers">
+    $$\pi(x) \sim \frac{x}{\ln(x)}$$
+</div>
+
+<p>Ou autrement dit que
+$$\lim_{x\to\infty} \pi(x) \cdot \frac{ln(x)}{x} = 1$$
+La fonction $\pi(x)$ se comporte donc de façon similaire à $\frac{x}{\ln(x)}$, qui diverge clairement vers l'infini.</p>
+<p>Nous ne nous attarderons pas plus sur le sujet.</p>
+<h2 id="lemme-de-gauss">Lemme de Gauss</h2>
+<p>Un autre résultat fondamental de théorie des nombres est dû au mathématicien Gauss, mathématicien allemand du XIXe reconnu comme "Le Prince des mathématiques".</p>
+<p>Le lemme de Gauss affirme que : </p>
+<div class="lemma" data-name="Lemme de Gauss">
+    Soient $a$, $b$, $c$ trois entiers. Si $a|bc$ et si $a$ et $b$ sont premiers entre eux alors $a|c$.
+</div>
+
+<h2 id="demonstration">Démonstration</h2>
+<p>Soient $a$, $b$ et $c$ trois entiers relatifs. </p>
+<p>Supposons que $a|bc$ et que $a$ et $b$ sont premiers entre eux.</p>
+<p>Puisque $a|bc$, il existe un certain entier $k$ tel que :</p>
+<p>$$bc = ka$$</p>
+<p>Par ailleurs, d'après le théorème de Bachet-Bézout (ou théorème de Bézout), et puisque $a$ et $b$ sont premiers entre eux, il existe deux entiers $u$ et $v$ tels que :</p>
+<p>$$au + bv = 1$$</p>
+<p>En multipliant les deux membres de l'égalité par $c$ nous obtenons :</p>
+<p>$$cau + cbv = c$$</p>
+<p>D'où, sachant que $bc = ka$ : </p>
+<p>$$cau + kav = c$$</p>
+<p>En factorisant par $a$ nous obtenons finalement :</p>
+<p>$$a(cu + kv) = c$$</p>
+<p>Autrement dit, $a$ divise $c$ (ce qu'il fallait démontrer). </p>
+<h2 id="petit-theoreme-de-fermat">Petit théorème de Fermat</h2>
+<p>Un autre résultat fondamental en théorie des nombres, concernant cette fois-ci les congruences, est dû à Pierre de Fermat, mathématicien français sans doute le plus important dans cette branche des mathématiques.</p>
+<p>L'énoncé du petit théorème de fermat est le suivant :</p>
+<div class="theorem" data-name="Petit théorème de Fermat">
+    Soient $p$ un nombre premier et $a$ un entier naturel quelconque. Alors $a^p - a$ est divisible par $p$.
+</div>
+
+<p>De plus, si $p$ et $a$ sont premiers entre eux alors $a^p - 1$ est divisible par $p$.</p>
+<p>Par exemple, $8^3 - 8 = 504$ qui est divisible par $3$.</p>
+<p>Le petit théorème de Fermat peut également être formulé de la façon suivante, faisant intervenir explicitement son lien avec les congruences :</p>
+<div class="theorem" data-name="Petit théorème de Fermat (version congruences)">
+   Soient $p$ un nombre premier et $a$ un entier naturel quelconque. Alors $a^p \equiv a \pmod p$.
+</div>
+
+<p>Nous donnerons ici une démonstration due à Euler. </p>
+<p>Démontrons dans un premier temps un lemme dont nous aurons besoin par la suite pour démontrer le petit théorème de Fermat. </p>
+<p>Soit $k \in {1, \ldots, p-1 }$ alors $p|\binom{p}{k}$</p>
+<p>En effet :</p>
+<p>$$ \binom{p}{k} = \frac{p!}{k!(p-k)!} = \frac{p}{k} \times \frac{(p-1)!}{(k-1)!\left((p-1)-(k-1)\right)!} = \frac{p}{k} \binom{p-1}{k-1}$$</p>
+<p>D'où :</p>
+<p>$$p \binom{p-1}{k-1} = k\binom{p}{k} $$</p>
+<p>Donc $p$ divise $k\binom{p}{k}$.</p>
+<p>De plus, $p$ et $k$ étant premiers entre eux, nous avons, d'après le théorème de Gauss, $p|\binom{p}{k}$, ce qu'il fallait démontrer. </p>
+<p>Démontrons maintenant le petit théorème de Fermat. 
+Nous raisonnerons pour cela par récurrence. </p>
+<p>On cherche donc à prouver que pour tout $a \in {1, \ldots, p-1}$,  $a^p \equiv a \pmod p$. Il est en effet suffisant de prouver cette affirmation pour $a \in {1, \ldots p-1}$ car nous raisonons ici par congruence. </p>
+<p><strong>Initialisation</strong> : On a $0^p \equiv 0 \pmod p$, donc la propriété est initialisée.</p>
+<p><strong>Hérédité</strong>: Soit $a\in {1, \ldots p-2}$, supposons que $a^p \equiv a \pmod p$. Montrons que cette assertion est encore vraie pour $a+1$.</p>
+<p>D'après le binôme de Newton,</p>
+<p>$$(a+1)^p = \sum_{k=0}^{p} \binom{p}{k} a^k$$</p>
+<p>Extrayons alors respectivement le premier et dernier terme de la somme ($k=0$ et $k=p$),</p>
+<p>$$(a+1)^p = a^p + 1 + \sum_{k=1}^{p-1} \binom{p}{k} a^k$$</p>
+<p>En passant aux congruences nous avons donc (puisque la somme est multiple de $p$ et d'après l'hypothèse de récurrence) : </p>
+<p>$$(a+1)^p  \equiv a + 1 + 0 \pmod p$$</p>
+<p>Ou autrement dit : </p>
+<p>$$(a+1)^p  \equiv a + 1 \pmod p$$</p>
+<p>Ce qui achève la démonstration. </p>
+<p>De plus, si $a$ et $p$ sont premiers entre eux alors $p|a^p-a$ implique que $p|a(a^{p-1}-1)$ et d'après le théorème de Gauss $p|a^{p-1} - 1$ ou autrement dit $a^{p-1} \equiv 1 \pmod p$, qui correspond au corollaire présenté ci-dessus.</p>
+<h2 id="le-crible-deratosthene">Le crible d'Ératosthène</h2>
+<p>Lorsque l'on cherche à lister les nombres premiers, la méthode consistant à les considérer un par un apparaît rapidement laborieuse et inefficace.</p>
+<p>Il est toutefois très facile de construire la liste des nombres premiers inférieurs à un certain entier $N$ en utilisant un algorithme connu sous le nom de "Crible d'Ératosthène" (mathématicien grec du 2ème siècle avant J.C).</p>
+<p>Fixons donc un certain $N\in \mathbb{N}$ et notons tous les entiers inférieurs ou égaux à N.</p>
+<p>$$2, 3, 4, 5, 6, \ldots N$$</p>
+<p>Le crible d'Ératosthène consiste à supprimer successivement les multiples pour ne garder que les nombres premiers.</p>
+<p>Il se déroule comme suit :</p>
+<ul>
+<li>Entourer 2 et supprimer tous ses multiples (4, 6, 8, ...)</li>
+<li>Entourer 3 et supprimer tous ses multiples restants (9, 15, 21, 27, ...)</li>
+<li>Entourer 5 et supprimer tous ses multiples restants (25, 35, 55, 65, ...)</li>
+</ul>
+<p>De manière générale, la n-ième étape consiste à entourer le dernier nombre à gauche non encore entouré et à supprimer tous ses multiples restants. </p>
+<p>Une fois arrivé à $\sqrt{N}$, les nombres restants sont les nombres premiers inférieurs ou égaux à $N$.</p>
+<p>Appliquons cette méthode au cas $N = 20$.</p>
+<p>Comme $\sqrt{20} \approx 4.7$, il nous suffira de répéter l'opération jusqu'à ce que le dernier nombre restant à gauche soit supérieur à 5.</p>
+<p>Écrivons donc la liste des entiers inférieurs ou égaux à $N$ :</p>
+<p>$$2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20$$</p>
+<p>Nous supprimons donc tous les multiples de 2 (excepté lui-même) :</p>
+<p>$$2, 3, 5, 7, 9, 11, 13, 15, 17, 19$$</p>
+<p>Puis de 3 : </p>
+<p>$$2, 3, 5, 7, 11, 13, 17, 19$$</p>
+<p>Le dernier nombre restant à gauche étant 5 ($&gt; 
+ \sqrt{20}$), la procédure est terminée.</p>
+<p>Les nombres obtenus sont les nombres premiers inférieurs ou égaux à $20$.</p>
+<h2 id="introduction-a-la-fonction-zeta">Introduction à la fonction zêta</h2>
+<p>La fonction zêta ($\zeta$) est une fonction définie pour tout réel <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> $x$ par : </p>
+<p>$$\zeta(x) = 1 + \frac{1}{2^x} + \frac{1}{3^x} + \frac{1}{4^x} + \ldots$$</p>
+<p>ou de manière condensée :</p>
+<p>$$\zeta(x) = \sum_{n=1}^{+\infty} \frac{1}{n^x} $$</p>
+<p>Par exemple, $\zeta(1) = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \ldots = +\infty$ ou $\zeta(2) = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2} + \ldots = \frac{\pi^2}{6}$ .</p>
+<p>Cette fonction revêt d'une importance toute particulière pour son lien avec les nombres premiers.</p>
+<p>En effet :</p>
+<p>$$\zeta(x) = \prod_{p\in\mathbb{P}} \frac{1}{1-p^{-x}} $$</p>
+<p>Autrement dit, un produit infini faisant intervenir l'ensemble des nombres premiers peut s'évaluer comme image de la fonction zêta.</p>
+<p><strong>Démonstration</strong></p>
+<p>Soit $x$ un nombre réel.</p>
+<p>On a :</p>
+<p>$$\zeta(x) = 1 + \frac{1}{2^x} + \frac{1}{3^x} + \frac{1}{4^x} + \frac{1}{5^x} + \frac{1}{6^x} + \frac{1}{7^x} + \frac{1}{8^x} + \frac{1}{9^x} + \ldots$$</p>
+<p>En divisant par $2^x$ des deux côtés de l'égalité nous obtenons :</p>
+<p>$$ \frac{\zeta(x)}{2^x} = \frac{1}{2^x} \left( 1 + \frac{1}{2^x} + \frac{1}{3^x} + \frac{1}{4^x} + \frac{1}{5^x} + \frac{1}{6^x} + \frac{1}{7^x} + \frac{1}{8^x} + \frac{1}{9^x} + \ldots \right) $$</p>
+<p>d'où :</p>
+<p>$$\frac{\zeta(x)}{2^x} = \frac{1}{2^x} + \frac{1}{4^x} + \frac{1}{6^x} + \frac{1}{8^x} + \ldots $$</p>
+<p>En soustrayant la deuxième égalité à la première nous obtenons :</p>
+<p>$$\left( 1 - \frac{1}{2^x} \right) \zeta(x) = 1 + \frac{1}{3^x} + \frac{1}{5^x} + \frac{1}{7^x} + \frac{1}{9^x} \ldots$$</p>
+<p>Observons ici que les dénominateurs pairs (multiples de 2) ont été supprimés.</p>
+<p>Répétons l'opération en divisant l'égalité obtenue par $3^x$ :</p>
+<p>$$\frac{1}{3^x} \left( 1 - \frac{1}{2^x} \right) \zeta(x) = \frac{1}{3^x} + \frac{1}{9^x} + \frac{1}{15^x} + \frac{1}{21^x} + \frac{1}{27^x} \ldots$$</p>
+<p>En soustrayant à nouveau cette égalité à l'égalité de départ nous obtenons :</p>
+<p>$$\left(1-\frac{1}{3^x} \right)\left( 1 - \frac{1}{2^x} \right) \zeta(x) = 1 + \frac{1}{5^x} + \frac{1}{7^x} + \frac{1}{11^x} + \frac{1}{13^x} \ldots$$</p>
+<p>Nous avons cette fois-ci supprimés les dénominateurs multiples de $3$.</p>
+<p>Il apparaît alors clair que cette procédure est celle du crible d'Ératosthène.</p>
+<p>En répétant le processus à l'infini nous obtenons finalement :</p>
+<p>$$\zeta(x) \left( 1 - \frac{1}{2^x} \right) \left(1-\frac{1}{3^x} \right) \left(1-\frac{1}{5^x} \right) \ldots  = 1$$</p>
+<p>D'où nous pouvons extraire $\zeta$ :</p>
+<p>$$\zeta(x) = \frac{1}{\left( 1 - \frac{1}{2^x} \right) \left(1-\frac{1}{3^x} \right) \left(1-\frac{1}{5^x} \right) \ldots}$$</p>
+<p>Soit de façon condensée</p>
+<p>$$\zeta(x) = \prod_{p\in\mathbb{P}} \frac{1}{1-p^{-x}} $$</p>
+<h2 id="bibliographie">Bibliographie</h2>
+<ul>
+<li>
+<p>(***) Une vidéo d'introduction à la fonction zêta et à la conjecture de Riemann <a href="https://www.youtube.com/watch?v=KKoxMe2T7zo">Devenir RICHE grâce aux maths (La fonction Zeta de Riemann) — Axel Arno</a></p>
+</li>
+<li>
+<p>(***) Un livre de référence en théorie des nombres <a href="https://www.amazon.com/Introduction-Theory-Numbers-G-Hardy/dp/0199219869">An Introduction To The Theory Of Numbers — G. H. Hardy</a></p>
+</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Il est également tout à fait possible, et c'est en réalité le cas le plus fréquent dans la littérature mathématique, de définir $\zeta$ sur $\mathbb{C}$.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+        <hr>
+
+        <div class="flex space-between">
+            <div class="author">
+                Raphaël Goutmann & Isabella Mathias-Forni
+            </div>
+            <div class="date">
+                29/03/2024
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- js -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -89,6 +89,12 @@ a {
     color: #c0392b;
 }
 
+@media print {
+    a {
+        text-decoration: none;
+    }
+}
+
 pre code {
     display: block;
     width: 100%;
@@ -161,14 +167,21 @@ summary {
     margin-bottom: 1rem;
 }
 
-.theorem::before {
-    content: "Théorème" " (" attr(data-name) ") ";
+.theorem::before, .lemma::before {
     display: block;
     font-weight: bold;
     padding-bottom: .5rem;
 }
 
-.theorem {
+.theorem::before {
+    content: "Théorème" " (" attr(data-name) ") ";
+}
+
+.lemma::before {
+    content: "Lemme" " (" attr(data-name) ") ";
+}
+
+.theorem, .lemma {
     padding: 2rem;
     border: black 2px solid;
 }
@@ -223,4 +236,12 @@ summary {
 
 .no-text-decoration {
     text-decoration: none;
+}
+
+@media print {
+
+    .no-print {
+        display: none;
+    }
+
 }
