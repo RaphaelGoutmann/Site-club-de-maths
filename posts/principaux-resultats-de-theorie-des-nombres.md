@@ -213,7 +213,7 @@ L'énoncé du petit théorème de fermat est le suivant :
     Soient $p$ un nombre premier et $a$ un entier naturel quelconque. Alors $a^p - a$ est divisible par $p$.
 </div>
 
-De plus, si $p$ et $a$ sont premiers entre eux alors $a^p - 1$ est divisible par $p$.
+De plus, si $p$ et $a$ sont premiers entre eux alors $a^{p-1} - 1$ est divisible par $p$.
 
 Par exemple, $8^3 - 8 = 504$ qui est divisible par $3$.
 
@@ -222,6 +222,8 @@ Le petit théorème de Fermat peut également être formulé de la façon suivan
 <div class="theorem" data-name="Petit théorème de Fermat (version congruences)">
    Soient $p$ un nombre premier et $a$ un entier naturel quelconque. Alors $a^p \equiv a \pmod p$.
 </div>
+
+Et si de plus $p$ et $a$ sont premier entre eux alors $a^{p-1} \equiv 1 \pmod p$
 
 Nous donnerons ici une démonstration due à Euler. 
 
