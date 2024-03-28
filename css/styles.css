@@ -89,12 +89,6 @@ a {
     color: #c0392b;
 }
 
-@media print {
-    a {
-        text-decoration: none;
-    }
-}
-
 pre code {
     display: block;
     width: 100%;
@@ -238,10 +232,41 @@ summary {
     text-decoration: none;
 }
 
+
+
 @media print {
 
     .no-print {
         display: none;
+    }
+
+    html, body {
+        background-color: white;
+        color: black;
+        font-size:   10pt;
+        line-height: 15pt;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .container {
+        padding-left: 1in;
+        padding-right: 1in;
+    }
+
+    h1, 
+    h2, 
+    h3, 
+    h4, 
+    h5, 
+    h6 {
+        font-family: 'Source Serif 4', Georgia, Cambria, "Times New Roman", Times, serif;
+    }
+
+    img {
+        max-height: 3in;
     }
 
 }
