@@ -174,13 +174,14 @@ La fonction $\pi(x)$ se comporte donc de façon similaire à $\frac{x}{\ln(x)}$,
     Soient $p$ un nombre premier et $a$ un entier naturel quelconque. Alors $a^p - a$ est divisible par $p$.
 </div>
 
-<p>De plus, si $p$ et $a$ sont premiers entre eux alors $a^p - 1$ est divisible par $p$.</p>
+<p>De plus, si $p$ et $a$ sont premiers entre eux alors $a^{p-1} - 1$ est divisible par $p$.</p>
 <p>Par exemple, $8^3 - 8 = 504$ qui est divisible par $3$.</p>
 <p>Le petit théorème de Fermat peut également être formulé de la façon suivante, faisant intervenir explicitement son lien avec les congruences :</p>
 <div class="theorem" data-name="Petit théorème de Fermat (version congruences)">
    Soient $p$ un nombre premier et $a$ un entier naturel quelconque. Alors $a^p \equiv a \pmod p$.
 </div>
 
+<p>Et si de plus $p$ et $a$ sont premier entre eux alors $a^{p-1} \equiv 1 \pmod p$</p>
 <p>Nous donnerons ici une démonstration due à Euler. </p>
 <p>Démontrons dans un premier temps un lemme dont nous aurons besoin par la suite pour démontrer le petit théorème de Fermat. </p>
 <p>Soit $k \in {1, \ldots, p-1 }$ alors $p|\binom{p}{k}$</p>
