@@ -184,13 +184,13 @@ La fonction $\pi(x)$ se comporte donc de façon similaire à $\frac{x}{\ln(x)}$,
 <p>Et si de plus $p$ et $a$ sont premier entre eux alors $a^{p-1} \equiv 1 \pmod p$</p>
 <p>Nous donnerons ici une démonstration due à Euler. </p>
 <p>Démontrons dans un premier temps un lemme dont nous aurons besoin par la suite pour démontrer le petit théorème de Fermat. </p>
-<p>Soit $k \in {1, \ldots, p-1 }$ alors $p|\binom{p}{k}$</p>
+<p>Soient $p$ un nombre premier et $k \in {1, \ldots, p-1 }$ alors $p|\binom{p}{k}$.</p>
 <p>En effet :</p>
 <p>$$ \binom{p}{k} = \frac{p!}{k!(p-k)!} = \frac{p}{k} \times \frac{(p-1)!}{(k-1)!\left((p-1)-(k-1)\right)!} = \frac{p}{k} \binom{p-1}{k-1}$$</p>
 <p>D'où :</p>
 <p>$$p \binom{p-1}{k-1} = k\binom{p}{k} $$</p>
 <p>Donc $p$ divise $k\binom{p}{k}$.</p>
-<p>De plus, $p$ et $k$ étant premiers entre eux, nous avons, d'après le théorème de Gauss, $p|\binom{p}{k}$, ce qu'il fallait démontrer. </p>
+<p>De plus, $p$ et $k$ étant premiers entre eux, nous avons, d'après le lemme de Gauss, $p|\binom{p}{k}$, ce qu'il fallait démontrer. </p>
 <p>Démontrons maintenant le petit théorème de Fermat. 
 Nous raisonnerons pour cela par récurrence. </p>
 <p>On cherche donc à prouver que pour tout $a \in {1, \ldots, p-1}$,  $a^p \equiv a \pmod p$. Il est en effet suffisant de prouver cette affirmation pour $a \in {1, \ldots p-1}$ car nous raisonons ici par congruence. </p>

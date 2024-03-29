@@ -267,6 +267,11 @@ summary {
 
     img {
         max-height: 3in;
+        break-inside: avoid;
+    }
+
+    .theorem, .lemma {
+        break-inside: avoid;
     }
 
 }
