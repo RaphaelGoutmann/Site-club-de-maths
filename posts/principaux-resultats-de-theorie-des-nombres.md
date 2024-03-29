@@ -2,7 +2,6 @@
 title: Principaux résultats de théorie des nombres
 author: Raphaël Goutmann & Isabella Mathias-Forni
 date: 29/03/2024
-hidden: true
 ---
 
 [TOC]
