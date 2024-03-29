@@ -229,7 +229,7 @@ Nous donnerons ici une démonstration due à Euler.
 
 Démontrons dans un premier temps un lemme dont nous aurons besoin par la suite pour démontrer le petit théorème de Fermat. 
 
-Soit $k \in \{1, \ldots, p-1 \}$ alors $p|\binom{p}{k}$
+Soient $p$ un nombre premier et $k \in \{1, \ldots, p-1 \}$ alors $p|\binom{p}{k}$.
 
 En effet :
 
@@ -241,7 +241,7 @@ $$p \binom{p-1}{k-1} = k\binom{p}{k} $$
 
 Donc $p$ divise $k\binom{p}{k}$.
 
-De plus, $p$ et $k$ étant premiers entre eux, nous avons, d'après le théorème de Gauss, $p|\binom{p}{k}$, ce qu'il fallait démontrer. 
+De plus, $p$ et $k$ étant premiers entre eux, nous avons, d'après le lemme de Gauss, $p|\binom{p}{k}$, ce qu'il fallait démontrer. 
 
 Démontrons maintenant le petit théorème de Fermat. 
 Nous raisonnerons pour cela par récurrence. 
