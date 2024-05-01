@@ -46,9 +46,9 @@ shutil.copytree(img_path, build_path  / "img/")
 posts = []
 
 for post in posts_path.glob("*"):
-    text = post.read_text()
 
     if post.suffix == ".md":
+        text = post.read_text()
         meta, body = markdown2html(text)
     else:
         continue

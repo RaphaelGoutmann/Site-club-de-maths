@@ -7,5 +7,5 @@ templates:
   index: templates/index.html
   post: templates/post.html
 
-countdown: "vendredi 29 Mars 2024"
+countdown: "vendredi 03 Mai 2024"
 classroom: "M04"
