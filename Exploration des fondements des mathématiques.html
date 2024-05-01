@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploration des fondements des mathématiques — Atelier</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo-notre-dame-providence.png">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- medium zoom -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj+Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            mediumZoom('img', {background: '#000'})
+        })
+    </script>
+
+    <!-- katex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false},
+              ]
+            });
+        });
+    </script>
+
+</head>
+<body>
+    
+    <div class="container">
+
+        <a class="no-text-decoration no-print" href="index.html">← Revenir à l'accueil</a>
+
+        <h1>Exploration des fondements des mathématiques</h1>
+
+        <div class="toc">
+<ul>
+<li><a href="#notations">Notations</a></li>
+<li><a href="#axiomatisation-des-mathematiques">Axiomatisation des mathématiques</a><ul>
+<li><a href="#structure-des-mathematiques">Structure des mathématiques</a></li>
+<li><a href="#axiomes-deuclide">Axiomes d'Euclide</a></li>
+<li><a href="#axiomes-de-peano">Axiomes de Peano</a></li>
+<li><a href="#axiomes-zfc">Axiomes ZFC</a></li>
+</ul>
+</li>
+<li><a href="#theoremes-de-godel">Théorèmes de Gödel</a><ul>
+<li><a href="#completude-et-coherence-dun-systeme">Complétude et cohérence d'un système</a></li>
+<li><a href="#theoremes-de-godel_1">Théorèmes de Gödel</a></li>
+<li><a href="#le-cas-zfc">Le cas ZFC</a></li>
+<li><a href="#demonstration-simplifiee">Démonstration (simplifiée)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<blockquote>
+<p>“La mathématique est l'art de donner le même nom à des choses différentes.” — Henri Poincaré</p>
+</blockquote>
+<h1 id="notations">Notations</h1>
+<p>Nous adopterons, dans cet atelier, quelques notations relatives à la
+logique mathématique.</p>
+<ul>
+<li>$\Rightarrow$ signifie "implique"</li>
+<li>$\forall$ signifie "pour tout" ou "quelque soit"</li>
+<li>$\exists$ signifie "il existe"</li>
+<li>$\exists !$ signifie "il existe un unique"</li>
+<li>$\vee$ signifie "ou"</li>
+<li>$\wedge$ signifie "et"</li>
+<li>$\neg$ signifie "non"\</li>
+</ul>
+<p>Par ailleurs, on appellera <em>assertion</em> une affirmation soit <em>vraie</em>,
+soit <em>fausse</em>.</p>
+<p>En notant, par exemple, $A$ l'assertion "Socrate est un homme", $B$
+l'assertion "Tous les hommes sont mortels" et C l'assertion "Socrate est
+mortel" on a : $$(A \wedge B) \Rightarrow C$$</p>
+<h1 id="axiomatisation-des-mathematiques">Axiomatisation des mathématiques</h1>
+<h2 id="structure-des-mathematiques">Structure des mathématiques</h2>
+<p>Les mathématiques occupent une place particulière au sein de la grande
+famille des sciences.</p>
+<p>Une science a toujours pour objet la connaissance. Les mathématiques se
+distinguent des autres sciences dans leur manière d'accéder à cette
+connaissance.</p>
+<p>Une science dite <em>empirique</em> (la biologie, la physique, la médecine
+etc.) recherche la connaissance dans l'expérience. Il s'agit de
+construire des <em>modèles</em> qui puissent prévoir au mieux les phénomènes
+réels. Pour cela, le scientifique émet des hypothèses quant aux lois qui
+régissent ces phénomènes et construit des expériences pour tester ces
+hypothèses. Deux possibilités se présentent alors : les résultats de
+l'expérience peuvent confirmer les prédictions, auquel cas l'hypothèse
+est renforcée (mais non prouvée), ou bien l'expérience contredit
+l'hypothèse qui doit donc être ajustée. Ainsi, la notion de <em>preuve</em> ou
+de <em>vérité absolue</em> dans les sciences empiriques n'a pas de sens. Une
+théorie ne peut être que plus vraisemblable qu'une autre.</p>
+<p>Les mathématiques, <em>a contrario</em>, reposent sur l'idée d'une vérité
+absolue. La vérité mathématique est accessible par la preuve, qui
+consiste en une succession logique d'étapes menant à une conclusion
+<em>irréfutable</em>. Plus précisément, il s'agit de combiner, selon les lois
+de la logique, des résultats vrais pour aboutir à d'autres résultats
+vrai. Une question se pose alors : quel est le point de départ ? En
+effet, si les démonstrations consistent en une combinaison logique de
+résultats, arrive inévitablement un moment où le mathématicien doit
+admettre un résultat, une base, à partir de laquelle construire le
+reste. Ces résultats <em>admis</em> comme constituant la brique fondamentale de
+l'édifice mathématique sont appelés <em>axiomes</em>. Les mathématiques peuvent
+alors être vue comme une pyramide reposant sur un certain nombre
+d'axiomes desquels sont déduis, par inférence logique, théorèmes,
+lemmes, propositions et corollaires.</p>
+<p>L'enjeu consiste alors à déterminer le "meilleur" système d'axiomes, le
+meilleur ensemble d'axiomes, pour établir une base solide à l'ensemble
+des mathématiques.</p>
+<p>À noter ici que la démarche d'axiomatisation ne cherche pas à donner un
+sens aux objets manipulés. Elle distingue en effet la <em>nature</em> des
+objets leurs <em>propriétés</em>. Les mathématiques sont ici perçus comme un
+jeu logique de symboles, les objets définis n'ayant de sens que celui
+que nous leur donnons.</p>
+<h2 id="axiomes-deuclide">Axiomes d'Euclide</h2>
+<p>Proposés dans le livre 1 des <em>Élements</em>, les axiomes d'Euclide
+constituent le premier système d'axiomes de l'histoire des
+mathématiques. Euclide se basera par la suite dessus pour construire
+l'ensemble de sa théorie géométrique.</p>
+<p>Les axiomes d'Euclide sont au nombre de cinq :</p>
+<ol>
+<li>Deux points définissent un et un seul segment.</li>
+<li>Tout segment entre deux points peut être prolongé en une et une
+    seule droite.</li>
+<li>Un point et une longueur définissent un et un seul cercle.</li>
+<li>Tous les angles droits sont égaux.</li>
+<li>Par un point, il passe toujours une et une seule droite parallèle à
+    une droite donnée.</li>
+</ol>
+<p>Ces cinq propositions, évidente au premier abord, suffisent à construire
+l'ensemble de la théorie géométrique classique.</p>
+<p>Le dernier postulat (dit postulat des parallèles) a fait l'objet de
+nombreux débats dans au sein de la communauté mathématiques. Les
+mathématiciens se sont en effet longtemps interrogé sur le caractère
+<em>axiomatique</em> de ce dernier : n'est-il pas possible de le démontrer à
+partir des autres axiomes ? Auquel cas il s'agirait d'un théorème et non
+d'un axiome. Cette question a donné naissance aux géométries
+non-euclidiennes, des géométries dont le système d'axiomes n'admet pas
+le postulat des parallèles (nous aurons l'occasion d'explorer d'avantage
+ce sujet dans un prochain atelier). De cette manière les mathématicien
+ont pu prouver qu'il s'agissait bien d'un axiome et non d'un théorème.</p>
+<h2 id="axiomes-de-peano">Axiomes de Peano</h2>
+<p>La géométrie euclidienne, aussi élégante soit-elle, montre rapidement
+certaines faiblesses. Limitée au cadre de la géométrie, elle ne permet
+pas de formaliser les nouvelles branches des mathématiques qui se
+développent alors, que ce soit l'analyse, l'algèbre ou encore
+l'arithmétique.</p>
+<p>Dans cette ambition d'élargir le champ de l'axiomatisation, le
+mathématicien italien Giuseppe Peano répertoria, en 1889, les propriétés
+structurelles de l'ensemble des entiers naturels $\mathbb{N}$ afin de
+donner une construction axiomatique de l'arithmétique.</p>
+<p>L'arithmétique de Peano repose sur deux idées fondamentales : l'objet 0
+et le concept de successeur. Les entiers naturels sont en effet définis
+par ceci qu'ils <em>succèdent</em> tous (à l'exception de 0) à un autre entier
+naturel. Une fois le 0 définit, ils peuvent ainsi tous être décrit par
+une relation de succession par rapport à un précédent entier.</p>
+<p>Les axiomes de l'arithmétique de Peano sont les suivants :</p>
+<ul>
+<li>$\forall x, \neg (S(x) = 0)$ (aucun entier ne possède 0 pour
+    successeur ou, autrement dit, 0 n'a pas de prédécesseur)</li>
+<li>$\forall x, \exists y, \neg (x = 0) \Rightarrow (S(y) = x)$ (tout
+    entier non nul est le successeur d'un autre entier)</li>
+<li>$\forall x, \forall y, (S(y) = S(x) \Rightarrow x = y)$ (deux
+    entiers de même successeur sont égaux)</li>
+</ul>
+<p>Une fois définis les objets de l'arithmétique de Peano (les entiers), il
+s'agit de définir des opérations sur ces derniers, là encore à partir
+d'axiomes. L'addition dans un premier temps :</p>
+<ul>
+<li>$\forall x, (x + 0 = x)$ (0 est un élément <em>neutre</em> pour l'addition)</li>
+<li>$\forall x, \forall y, (x + S(y) = S(x + y))$ (l'addition d'un successeur est le successeur de l'addition)</li>
+</ul>
+<p>À noter ici que l'addition est définie de façon récursive. Additionner
+deux entiers revient à dérouler une procédure aboutissant <em>in fine</em> au
+résulat. De la même manière, il est possible de définir la
+multiplication à partir de l'addition et de façon récursive :</p>
+<ul>
+<li>$\forall x, (x \times 0 = 0)$ (0 est un élément <em>absorbant</em> pour la
+    multiplication)</li>
+<li>$\forall x, \forall y, (x \times S(y) = x \times y + x$ (multiplier
+    $x$ par un successeur revient à ajouter $x$ à la multiplication)</li>
+</ul>
+<p>Le dernier axiome, enfin, et sans doute le plus important, est celui
+permettant de raisonner par récurrence. Il se définit comme suit :</p>
+<ul>
+<li>($\phi(0) \wedge (\forall x, \phi(x) \Rightarrow \phi(S(x))) \Rightarrow \forall x, \phi(x) )$</li>
+</ul>
+<p>Autrement dit, si une propriété est vérifiée en $0$ et que sa vérité
+pour un certain rang <em>implique</em> celle du successeur, alors elle est
+vraie pour tout entier naturel.</p>
+<p>Combinés aux axiomes de la logique, il est alors possible, à partir de
+ces quelques axiomes, de réécrire (non sans peine néanmoins) toute
+l'arithmétique de façon rigoureuse.</p>
+<p>Démontrons, pour illustrer ces notions, l'égalité $1 + 1 = 2$ ou, selon
+les notations de l'arithmétique de Peano : $$S(0) + S(0) = S(S(0))$$</p>
+<p>D'après l'axiome n°5 (qui définit l'addition par récurrence) :
+$$S(0) + S(0) = S(S(0) + 0)$$</p>
+<p>Puis d'après axiome n°4 (qui définit le 0 comme élément neutre de
+l'addition) : 
+$$S(S(0)+0) = S(S(0))$$</p>
+<p>Enfin, par transitivité de l'égalité (qui est un axiome de la logique) :
+$$S(0) + S(0) = S(S(0))$$</p>
+<p>Ainsi, l'arithmétique de Peano permet de décrire l'ensemble de
+l'arithmétique dans un système d'une étonnante simplicité. Cepandant, il
+présente la même limite soulevée dans le cadre des axiomes d'Euclide :
+il se limite à l'étude de l'arithmétique.</p>
+<p>C'est dans ce contexte que naît au au sein de la communauté mathématique
+du XXe siècle la volonté de construire un système d'axiomes universel,
+pouvant établir une base solide à l'ensemble des mathématiques.</p>
+<h2 id="axiomes-zfc">Axiomes ZFC</h2>
+<p>ZFC, nommé ainsi en hommage aux mathématiciens Ernst Zermelo et Abraham
+Fraenkel qui en sont à l'origine, est un système d'axiomes ayant pour
+ambition de décrire toutes les mathématiques. En particulier, ZFC
+contient l'arithmétique de Peano et la géométrie euclidienne, mais
+premet également de décrire l'analyse, les probabilités etc.</p>
+<p>Développé au XXe siècle, ZFC a été le point de départ des travaux du
+groupe Bourbaki, décidé à reconstruire toutes les mathématiques sur des
+fondements nouveaux, donnant naissances aux mathématiques "modernes".</p>
+<p>Le système ZFC repose entièrement sur le concept d'ensemble. Tout objet
+mathématique se ramène, dans ZFC, à un ensemble. De même, toute
+opération sur ces objets, se rapport à des opérations ensemblistes
+d'inclusion, d'appartenance, d'union et d'intersection.</p>
+<p>ZFC est ajourd'hui admis, grâce au travaux de Bourbaki, comme le système
+d'axiomes de référence.</p>
+<h1 id="theoremes-de-godel">Théorèmes de Gödel</h1>
+<h2 id="completude-et-coherence-dun-systeme">Complétude et cohérence d'un système</h2>
+<p>Mais ZFC est-il parfait ? Sommes nous réellement parvenus à établir des
+bases inébranlables à toutes les mathématiques ?</p>
+<p>Pour répondre à cette question, définissons dans un premier temps les
+caractéristiques nécessaires à un système d'axiomes <em>parfait</em>.</p>
+<p>La première caractéristique est la <em>complétude</em> du système. Étant donné
+une certaine affirmation $A$ formulée dans le système en question, il
+doit être possible de démontrer $A$ ($A$ est alors dite <em>démontrable</em>)
+ou de réfuter $A$, c'est à dire de démontrer $\neg A$ ($A$ est alors
+dite <em>réfutable</em>) au sein du système d'axiomes. Aucune assertion ne doit
+être <em>indécidable</em>, c'est à dire ni démontrable, ni réfutable. Un
+système d'axiomes <em>parfait</em> doit être en capacité de démontrer ou de
+réfuter toutes les assertions formulées dans son langage.</p>
+<p>La seconde caractéristique est la <em>cohérence</em> du système. Un système est
+<em>incohérent</em> lorsqu'une proposition peut à la fois être démontrée et
+réfutée, qu'elle peut être à la fois <em>vraie</em> et <em>fausse</em>. Un tel système
+est nécessairement inconsistant et ne peut donc être utilisé pour
+établir une base solide à quelque théorie que ce soit. <em>A contrario</em> un
+système est dit cohérent si toute affirmation $A$ est soit <em>vraie</em>, soit
+<em>fausse</em> mais jamais les deux à la fois.</p>
+<p>Intuitivement, il semble que l'incohérence d'un système apparaît
+clairement dans son système d'axiomes. Mais de subtiles paradoxes
+peuvent rendre incohérente une théorie pourtant joliment construite.
+L'ancêtre de ZFC, une théorie axiomatique générale également basée sur
+des ensembles, s'est par exemple vue entièrement détruite par un
+paradoxe soulevé par Bertrand Russel. En effet, étant donné une
+propriété $P$, ce système autorisait de construire l'ensemble E de tous
+les objets vérifiant cette propriété $P$. Il est par exemple possible de
+définir $\mathbb{R^+}$ comme l'ensemble réels supérieurs ou égaux à $0$.
+Mais un problème surgit lorsque l'on considère des ensembles d'ensembles
+et en particulier "l'ensemble des ensembles qui ne se contiennent pas
+eux mêmes". E
+appartient-il à lui-même ? Si $E$ n'appartient pas à lui-même, alors il
+respecte la propriété et doit donc appartenir à lui-même. De la même
+manière, si $E$ appartient à lui-même, alors il doit être supprimé
+puisqu'il ne vérifie plus la propriété. Autrement dit :</p>
+<p>$$E \in E \Longleftrightarrow E \notin E$$</p>
+<p>Une contradiction. Ce système d'axiomes était donc <em>incohérent</em>.</p>
+<p>Ainsi, le système d'axiomes parfait se doit d'être à la fois <em>cohérent</em>,
+<em>complet</em> et capable de décrire l'ensemble des mathématiques.</p>
+<h2 id="theoremes-de-godel_1">Théorèmes de Gödel</h2>
+<p>Kurt Gödel, mathématicien et logicien autrichien, publie ainsi en 1931
+dans son article <em>Über formal unentscheidbare Sätze der Principia
+Mathematica und verwandter Systeme</em> (« Sur les propositions formellement
+indécidables des Principia Mathematica et des systèmes apparentés »),
+ses théorèmes d'incomplétude, établissant qu'un système d'axiomes
+parfait ne peut exister.</p>
+<p>Le premier théorème d'incomplétude de Gödel affirme que tout système
+d'axiomes suffisamment puissant pour représenter l'arithmétique est
+nécessairement incomplet ou, autrement dit, pourra formuler des
+affirmations <em>indécidables</em>.</p>
+<p>Le second théorème d'incomplétude de Gödel affirme quand à lui que tout
+système d'axiomes suffisamment puissant pour représenter l'arithmétique
+ne peut démontrer sa propre cohérence. Un système d'axiomes peut
+démontrer la cohérence d'un autre système, ou d'une restriction de
+lui-même, mais pas sa propre cohérence. Étant donné que le système
+d'axiomes parfait est censé représenter la totalité des mathématiques,
+il apparaît absurde d'envisager de se placer dans un système plus large
+pour démontrer la cohérence du premier.</p>
+<p>Ainsi, la complétude est fondamentalement impossible, quelque soit le
+système choisit, et la cohérence indémontrable, contraignant les
+mathématiciens à travailler sous une épée de Damoclès, ne pouvant
+qu'espérer que leurs mathématiques soient consistantes.</p>
+<p>John Von Neumann, mathématicien américano-hongrois, sans doute l'un des
+plus important de l'histoire, notamment pour sa contribution dans la
+théorisation des ordinateurs (avec son <em>architecture de Von Neumann</em>)
+déclara en découvrant les résultats de Gödel "C'est fini." L'espoir
+d'une génération de mathématiciens d'établir des bases solides aux
+mathématiques s'effondrait.</p>
+<h2 id="le-cas-zfc">Le cas ZFC</h2>
+<p>Qu'en est-il alors de ZFC ?</p>
+<p>D'une part, il est peu probable que ZFC soit <em>incohérent</em>. Bien qu'il
+soit impossible de prouver sa cohérence, les mathématiciens s'accordent
+à dire que si ZFC était incohérent, une telle incohérence aurait déjà
+été découverte, tant ZFC a été éprouvé en tout sens.</p>
+<p>L'incomplétude, toutefois, est plus problématique. Les mathématiciens
+travaillent désormais en connaissance de cause. Certains théorèmes, tels
+que l'hypothèse du continu (affirmant qu'il n'existe aucun ensemble de
+cardinal compris entre $\mathbb{N}$ et $\mathbb{R}$), ne peuvent être
+<em>décidés</em> au sein de ZFC. Les mathématiciens doivent faire preuve
+d'humilité en acceptant que certains théorèmes n'admettent pas de
+démonstration.</p>
+<h2 id="demonstration-simplifiee">Démonstration (simplifiée)</h2>
+<p>(...)</p>
+
+        <hr>
+
+        <div class="flex space-between">
+            <div class="author">
+                Louise Marsollier & Raphaël Goutmann
+            </div>
+            <div class="date">
+                03/05/2024
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- js -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
