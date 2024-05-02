@@ -2,4 +2,4 @@
 
 files=`ls | grep .md`
 
-pandoc -f markdown -t pdf -s $files -o o.pdf
+pandoc --pdf-engine=xelatex -f markdown -t pdf -s $files -o o.pdf

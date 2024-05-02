@@ -310,7 +310,4 @@ cardinal compris entre $\mathbb{N}$ et $\mathbb{R}$), ne peuvent être
 d'humilité en acceptant que certains théorèmes n'admettent pas de
 démonstration.
 
-## Démonstration (simplifiée)
-
-(\...)
 
