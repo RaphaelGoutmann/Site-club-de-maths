@@ -6,6 +6,3 @@ posts: "posts/"
 templates: 
   index: templates/index.html
   post: templates/post.html
-
-countdown: "vendredi 03 Mai 2024"
-classroom: "M04"

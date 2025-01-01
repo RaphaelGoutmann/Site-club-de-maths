@@ -22,9 +22,6 @@ with open("config.yaml", "r") as configFile:
     posts_path  = Path(config["posts"])
 
     
-    countdown        = Path(config["countdown"])
-    classroom        = Path(config["classroom"])
-
     templates = {
         "index": Path(config["templates"]["index"]).read_text(),
         "post": Path(config["templates"]["post"]).read_text()
@@ -90,8 +87,6 @@ for post in posts:
 
 html = render(templates["index"], context = {
     "posts_list": posts_list,
-    "countdown": countdown,
-    "classroom": classroom
 })
 
 with open(build_path / "index.html", "w") as o:
